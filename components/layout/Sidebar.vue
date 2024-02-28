@@ -44,6 +44,7 @@
 </script>
 
 <style lang="scss">
+@import "assets/style/mixins.scss";
   .applicationSidebarContainer{
     width: 100%;
     max-width: 260px;
@@ -74,6 +75,7 @@
     }
     .sidebarNavigation{
       height: 100%;
+      @include label;
       .navigationItemWrapper{
           color: var(--sidebar-navigation-text);
           text-decoration: none;

@@ -25,40 +25,38 @@
 </script>
 
 <style lang="scss">
-  .tableContainer{
-    width: 100%;
-    border-spacing: 0px;
-    text-align: left;
-    background-color: var(--section);
-    > table{
-        > thead{
-            height: 45px;
-            > tr{
-                font-family: "Roboto Condensed", sans-serif;
-                font-optical-sizing: auto;
-                font-weight: 500;
-                font-style: normal;
-                background-color: var(--secondary);
-                >th{
-                    font-size: 12px;
-                    color: var(--lightGray);
-                    font-weight: 600;
-                    border-bottom: 1px solid var(--divider);
+    @import "assets/style/mixins.scss";
+    .tableContainer{
+        width: 100%;
+        border-spacing: 0px;
+        text-align: left;
+        background-color: var(--section);
+        > table{
+            > thead{
+                height: 45px;
+                > tr{
+                    @include label;
+                    background-color: var(--secondary);
+                    >th{
+                        font-size: 12px;
+                        color: var(--lightGray);
+                        font-weight: 600;
+                        border-bottom: 1px solid var(--divider);
+                    }
                 }
             }
-        }
-        > tbody{
-            > tr{
-                > td, > th{
+            > tbody{
+                > tr{
+                    > td, > th{
 
+                    }
+                }
+            }
+            td, th{
+                &.hiddenCell{
+                    width: 0px;
                 }
             }
         }
-        td, th{
-            &.hiddenCell{
-                width: 0px;
-            }
-        }
-    }
   }
 </style>

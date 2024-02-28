@@ -1,10 +1,14 @@
 :root{
     --background: #f4f4f4;
     --text: #161719;
+    --primary: #0065FF; //Primary color
+    --primaryText: #fff; //Text color for primary fill
 
     --area-placeholder-fill: #dce0eb;
     --divider: #ddd;
-    --section: #fff;
+    --overlay: rgba(0,0,0,0.4);
+    --active: #23CF72;
+    --disactive: #FF5656;
 
     --sidebar-fill: #fff;
     --sidebar-text: #161719;
@@ -15,4 +19,42 @@
     --sidebar-navigation-fill: var(--sidebar-fill);
     --sidebar-navigation-text: var(--sidebar-text);
     --sidebar-navigation-icon: var(--sidebar-text);
+
+    //Statuses
+    --statusColorActive: #dff9ea;
+    --statusTextActive: #23CF72;
+
+    --statusColorDisactive: #ffe7e7;
+    --statusTextDisactive: #FF5656;
+
+    --statusColorScheduled: #f0f6fe;
+    --statusTextScheduled: #479BFF;
+
+    --iconLightColor: #E8EDF2;
+    --iconLightText: #BAC6D1;
+
+    //Buttons Area
+    --buttonPrimaryColor: var(--primary);
+    --buttonPrimaryText: var(--primaryText);
+    --buttonPrimaryHoverColor: #e4841b;
+
+    --buttonSecondaryColor: rgba(255, 147, 30, 0.16);
+    --buttonSecondaryText: #FF931E;
+    --buttonSecondaryHoverColor: #fcd5b5;
+
+    --buttonActiveColor: var(--statusTextActive);
+    --buttonActiveText: #fff;
+    --buttonActiveHoverColor: #15c063;
+    --buttonActiveHoverText: #fff;
+    --buttonActiveDisabledFill: #c8ded2;
+    --buttonActiveDisabledText: #6c957f;
+
+    --buttonDangerColor: var(--statusTextDisactive);
+    --buttonDangerText: #fff;
+    --buttonDangerHoverColor: #d14040;
+    --buttonDangerHoverText: #fff;
+
+    --buttonCleanColor: transparent;
+    --buttonCleanText: var(--text);
+    --buttonCleanHoverColor: var(--iconLightColor);
 }
