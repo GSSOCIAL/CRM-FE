@@ -1,6 +1,9 @@
 :root{
     --background: #f4f4f4;
     --text: #161719;
+    --secondary: #fff;
+    --section: #fff;
+    --secondary-text: #807b91;
     --primary: #0065FF; //Primary color
     --primaryText: #fff; //Text color for primary fill
 
@@ -19,6 +22,13 @@
     --sidebar-navigation-fill: var(--sidebar-fill);
     --sidebar-navigation-text: var(--sidebar-text);
     --sidebar-navigation-icon: var(--sidebar-text);
+
+    //Fields
+    --field-fill: #ecf0f3;
+    --field-placeholder: #adbcd0;
+    --field-outline: transparent;
+    --field-text: #161719;
+    --field-icon: var(--field-placeholder);
 
     //Statuses
     --statusColorActive: #dff9ea;
