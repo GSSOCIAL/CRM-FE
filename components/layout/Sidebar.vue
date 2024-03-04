@@ -2,11 +2,10 @@
   <div class="applicationSidebarContainer" :class="{
     'sidebarCollapsed': isCollapsed
   }">
-    <div class="sidebarUserProfile">
-      <div class="userAvatar"></div>
-      <div class="userDetails"></div>
+    <LayoutSidebarUser :isCollapsed="isCollapsed"/>
+    <div class="sidebarGlobalSearch">
+      <Field placeholder="Search" />
     </div>
-    <div class="sidebarGlobalSearch"></div>
     <div class="sidebarNavigation">
       <nuxt-link class="navigationItemWrapper" v-for="item in navigation" :key="item.id" :to="item.route">
         <div class="navigationItem">
@@ -44,7 +43,7 @@
 </script>
 
 <style lang="scss">
-@import "assets/style/mixins.scss";
+  @import "assets/style/mixins.scss";
   .applicationSidebarContainer{
     width: 100%;
     max-width: 260px;
@@ -52,34 +51,22 @@
     max-height: 100vh;
     background-color: var(--sidebar-fill);
     color: var(--sidebar-text);
-    font-size: 14px;
+    font-size: var(--font-default);
     display: flex;
     flex-direction: column;
-
-    .sidebarUserProfile{
-      display: grid;
-      padding: 0px 16px;
-      grid-template-columns: 38px 1fr;
-      grid-gap: 16px;
-      >.userAvatar{
-        width: 38px;
-        height: 38px;
-        border-radius: 12px;
-        background-color: var(--area-placeholder-fill);
-      }
-      >.userDetails{}
-      padding: 40px 16px 60px;
-    }
+    border-right: 1px solid var(--divider);
     .sidebarGlobalSearch{
-      padding: 20px 16px;
+      padding: 12px var(--padding);
+      border-bottom: 1px solid var(--divider);
     }
     .sidebarNavigation{
       height: 100%;
       @include label;
+      padding: 12px 0px;
       .navigationItemWrapper{
           color: var(--sidebar-navigation-text);
           text-decoration: none;
-          padding: 0px 16px;
+          padding: 0px var(--padding);
           box-sizing: border-box;
           display: block;
           font-weight: 500;
@@ -88,7 +75,7 @@
             padding: 6px;
             display: grid;
             grid-template-columns: 24px 1fr;
-            grid-gap: 16px;
+            grid-gap: var(--padding);
             align-items: center;
             border-radius: 6px;
             >.icon{
@@ -116,12 +103,12 @@
     }
     .sidebarActions{}
     .sidebarCollapseButton{
-      padding: 16px;
+      padding: var(--padding);
       display: grid;
-      grid-template-columns: 38px;
+      grid-template-columns: 40px;
       >.sidebarCButton{
-        width: 38px;
-        height: 38px;
+        width: 40px;
+        height: 40px;
         background-color: var(--area-placeholder-fill);
         cursor: pointer;
         display: flex;
@@ -148,13 +135,13 @@
       }
     }
     &.sidebarCollapsed{
-      max-width: 32px + 38px;
+      max-width: 32px + 40px;
       .sidebarNavigation{
         .navigationItemWrapper{
           .navigationItem{
             display: flex;
             flex-direction: row;
-            width: 38px;
+            width: 40px;
             .icon{
               display: flex;
               align-items:center;

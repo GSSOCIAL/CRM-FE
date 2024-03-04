@@ -45,31 +45,52 @@
         width: 100%;
         border-spacing: 0px;
         text-align: left;
-        background-color: var(--section);
+        background-color: var(--fill-primary);
         > table{
+            border-spacing: 0px;
+            width: 100%;
+            border: 1px solid var(--divider);
+            border-radius: 6px;
+            overflow: hidden;
             > thead{
-                height: 45px;
                 > tr{
                     @include label;
-                    background-color: var(--secondary);
+                    background-color: var(--fill-secondary);
+                    font-size: 13px;
                     >th{
                         font-size: 12px;
-                        color: var(--lightGray);
+                        color: var(--text-secondary);
                         font-weight: 600;
                         border-bottom: 1px solid var(--divider);
+                        padding: 12px;
                     }
                 }
             }
             > tbody{
                 > tr{
+                    font-size: 13px;
+                    color: var(--text-primary);
                     > td, > th{
-
+                        font-weight: normal;
+                        padding: 12px;
+                    }
+                    &:nth-child(odd){
+                        background-color: var(--fill-primary);
+                    }
+                    &:nth-child(even){
+                        background-color: #F7FAFF;
+                    }
+                    &:not(:last-child){
+                        > td, > th{
+                            border-bottom: 1px solid var(--divider);
+                        }
                     }
                 }
             }
             td, th{
                 &.hiddenCell{
                     width: 0px;
+                    padding: 0px;
                 }
             }
         }

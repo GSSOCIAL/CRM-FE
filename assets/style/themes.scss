@@ -1,20 +1,22 @@
 :root{
-    --background: #f4f4f4;
-    --text: #161719;
-    --secondary: #fff;
-    --section: #fff;
-    --secondary-text: #807b91;
-    --primary: #0065FF; //Primary color
-    --primaryText: #fff; //Text color for primary fill
+    --fill-primary: #fff;
+    --fill-secondary: #F9FAFC;
+    --text-primary: #1E293F;
+    --text-secondary: #A2A5B4;
 
-    --area-placeholder-fill: #dce0eb;
-    --divider: #ddd;
+    --primary: #3F8CFF; //Primary color
+    --primary-text: #fff; //Text color for primary fill
+
+    --area-placeholder-fill: #E1E4EA;
+    --divider: #DEDFE3;
     --overlay: rgba(0,0,0,0.4);
     --active: #23CF72;
     --disactive: #FF5656;
 
-    --sidebar-fill: #fff;
-    --sidebar-text: #161719;
+    /***** Layout defines *****/
+    //Sidebar
+    --sidebar-fill: #F3F4F8;
+    --sidebar-text: var(--text-primary);
     
     --sidebar-navigation-focus-fill: #2884ff;
     --sidebar-navigation-focus-text: #fff;
@@ -23,11 +25,12 @@
     --sidebar-navigation-text: var(--sidebar-text);
     --sidebar-navigation-icon: var(--sidebar-text);
 
+    /***** Components *****/
     //Fields
-    --field-fill: #ecf0f3;
+    --field-fill: #fff;
     --field-placeholder: #adbcd0;
-    --field-outline: transparent;
-    --field-text: #161719;
+    --field-outline: var(--divider);
+    --field-text: var(--text-primary);
     --field-icon: var(--field-placeholder);
 
     //Statuses
@@ -45,7 +48,7 @@
 
     //Buttons Area
     --buttonPrimaryColor: var(--primary);
-    --buttonPrimaryText: var(--primaryText);
+    --buttonPrimaryText: var(--primary-text);
     --buttonPrimaryHoverColor: #e4841b;
 
     --buttonSecondaryColor: rgba(255, 147, 30, 0.16);

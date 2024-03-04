@@ -58,13 +58,13 @@
 
 .manageFiltersContainer{
     position: absolute;
-    background: var(--section);
+    background: var(--fill-primary);
     z-index: 12;
     top: 100%;
     right: 0px;
     box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2);
     >.manageFiltersHead{
-        padding: 16px;
+        padding: var(--padding);
         display: flex;
         flex-direction: row;
         align-self: center;
@@ -79,9 +79,9 @@
         }
     }
     >.manageFiltersWrapper{
-        padding: 0px 0px 16px;
+        padding: 0px 0px var(--padding);
         >.filterDefsContainer{
-            padding: 0px 16px 12px;
+            padding: 0px var(--padding) 12px;
             &:not(:last-child){
                 border-bottom: 1px solid var(--divider);
             }
@@ -90,7 +90,7 @@
     >.manageFiltersActions{
         display: flex;
         flex-direction: row;
-        padding: 0px 16px 16px;
+        padding: 0px var(--padding) var(--padding);
         .wrapper{
             width: 100%;
             flex: 1;

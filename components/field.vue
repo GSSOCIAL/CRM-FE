@@ -68,6 +68,7 @@
             border: none;
             padding: 8px 10px;
             font-size: 14px;
+            width: 100%;
             &::placeholder{
                 @include label;
                 color:var(--field-placeholder);
