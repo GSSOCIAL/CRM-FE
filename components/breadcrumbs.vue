@@ -9,7 +9,7 @@
     
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .breadCrumbsContainer{
     width: 100%;
     padding: 48px 0px 12px;

@@ -4,7 +4,7 @@
     }">
         <div class="fieldLabel">{{label}}</div>
         <div class="fieldWrapper">
-            <Subfield />
+            <Subfield @update:modelValue="update" />
         </div>
     </div>
 </template>
@@ -37,11 +37,22 @@
             type: String as unknown as keyof typeof constructors,
             default: "text",
             required: false
+        },
+        modelValue: {
+            type: String,
+            default: "",
+            required: true
         }
     })
-    const {label, placeholder, disabled, type} = props
+    const {label, placeholder, disabled, type, modelValue} = props
+    const emit = defineEmits(['update:modelValue'])
+
+    const update = (value) => {
+        emit("update:modelValue", value)
+    }
 
     const Subfield = () => h(constructors[type as keyof typeof constructors],{
+        modelValue: modelValue,
         placeholder: placeholder,
         disabled: disabled
     })

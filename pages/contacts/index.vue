@@ -1,26 +1,18 @@
 <script setup lang="ts">
-  const { $getModule, $userHasRole } = useNuxtApp()
+  const { $getModule, $userHasRole, $api } = useNuxtApp()
   
   const editMode = useState('editMode', () => false)
 
   const columns = useState('columns', () => $getModule("contacts").columns)
   const filters = useState('filters', () => $getModule("contacts").filters)
-  //let columns = $getModule("contacts").columns
-
-  const data = [
-    {
-      id: "1",
-      firstName: "Dorothy",
-      lastName: "M. Gutierrez",
-      dateOfBirth: "1952-11-05",
-    },
-    {
-      id: "2",
-      firstName: "Sarah ",
-      lastName: "M. H. Hardie",
-      dateOfBirth: "1950-01-05",
-    },
-  ]
+  const data = useState('data', ()=> [])
+  
+  onBeforeMount(() => {
+    $api.contacts.getContactsList().then((response)=>{
+      data.value = response
+    })
+  })
+  
 </script>
 
 <template>

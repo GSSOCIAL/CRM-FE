@@ -4,7 +4,7 @@
   }">
     <LayoutSidebarUser :isCollapsed="isCollapsed"/>
     <div class="sidebarGlobalSearch">
-      <Field placeholder="Search" />
+      <Field placeholder="Search" v-model="searchQuery" />
     </div>
     <div class="sidebarNavigation">
       <nuxt-link class="navigationItemWrapper" v-for="item in navigation" :key="item.id" :to="item.route">
@@ -29,6 +29,7 @@
 
   const { $getModule, $userHasRole } = useNuxtApp()
   const isCollapsed = useState('isCollapsed', () => false)
+  const searchQuery = useState('searchQuery', () => "")
   
   let navigation = (navigationDefs.sidebar || []).filter((item)=>{
     return $userHasRole(item?.role ?? $getModule(item.module).role)
