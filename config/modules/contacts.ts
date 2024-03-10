@@ -3,7 +3,7 @@ import type { TableBuilderColumn } from "@/interfaces/table";
 import type { ModuleFilter } from "@/interfaces/filter"
 
 export default class ContactsConfig extends ModuleConfig{
-    route = "/contacts"
+    route = "/portal/contacts"
     label = "Contacts"
     icon = "linearGrid1"
 
