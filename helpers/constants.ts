@@ -1,0 +1,1 @@
+export const PlatformRoute = "/portal/" as const

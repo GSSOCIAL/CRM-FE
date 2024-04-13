@@ -18,7 +18,9 @@
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
+    "@nuxtjs/i18n": "^8.2.0",
     "@vueuse/core": "^10.9.0",
-    "@vueuse/nuxt": "^10.9.0"
+    "@vueuse/nuxt": "^10.9.0",
+    "prettier": "3.2.5"
   }
 }

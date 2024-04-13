@@ -58,7 +58,7 @@
     })
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "assets/style/mixins.scss";
 .fieldContainer{
     width: 100%;

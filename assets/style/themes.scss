@@ -1,73 +1,74 @@
-:root{
-    --fill-primary: #fff;
-    --fill-secondary: #F9FAFC;
-    --text-primary: #1E293F;
-    --text-secondary: #A2A5B4;
+:root {
+  --fill-primary: #f7f9ff;
+  --fill-secondary: #f9fafc;
+  --fill-section: #fff;
+  --text-primary: #1e293f;
+  --text-secondary: #a2a5b4;
 
-    --primary: #3F8CFF; //Primary color
-    --primary-text: #fff; //Text color for primary fill
+  --primary: #3f8cff; //Primary color
+  --primary-text: #fff; //Text color for primary fill
 
-    --area-placeholder-fill: #E1E4EA;
-    --divider: #DEDFE3;
-    --overlay: rgba(0,0,0,0.4);
-    --active: #23CF72;
-    --disactive: #FF5656;
+  --area-placeholder-fill: #e1e4ea;
+  --divider: #dedfe3;
+  --overlay: rgba(0, 0, 0, 0.4);
+  --active: #23cf72;
+  --disactive: #ff5656;
 
-    /***** Layout defines *****/
-    //Sidebar
-    --sidebar-fill: #F3F4F8;
-    --sidebar-text: var(--text-primary);
-    
-    --sidebar-navigation-focus-fill: #2884ff;
-    --sidebar-navigation-focus-text: #fff;
-    --sidebar-navigation-focus-icon: #fff;
-    --sidebar-navigation-fill: var(--sidebar-fill);
-    --sidebar-navigation-text: var(--sidebar-text);
-    --sidebar-navigation-icon: var(--sidebar-text);
+  /***** Layout defines *****/
+  //Sidebar
+  --sidebar-fill: #f3f4f8;
+  --sidebar-text: var(--text-primary);
 
-    /***** Components *****/
-    //Fields
-    --field-fill: #fff;
-    --field-placeholder: #adbcd0;
-    --field-outline: var(--divider);
-    --field-text: var(--text-primary);
-    --field-icon: var(--field-placeholder);
+  --sidebar-navigation-focus-fill: #2884ff;
+  --sidebar-navigation-focus-text: #fff;
+  --sidebar-navigation-focus-icon: #fff;
+  --sidebar-navigation-fill: var(--sidebar-fill);
+  --sidebar-navigation-text: var(--sidebar-text);
+  --sidebar-navigation-icon: var(--sidebar-text);
 
-    //Statuses
-    --statusColorActive: #dff9ea;
-    --statusTextActive: #23CF72;
+  /***** Components *****/
+  //Fields
+  --field-fill: #fff;
+  --field-placeholder: #adbcd0;
+  --field-outline: var(--divider);
+  --field-text: var(--text-primary);
+  --field-icon: var(--field-placeholder);
 
-    --statusColorDisactive: #ffe7e7;
-    --statusTextDisactive: #FF5656;
+  //Statuses
+  --statusColorActive: #dff9ea;
+  --statusTextActive: #23cf72;
 
-    --statusColorScheduled: #f0f6fe;
-    --statusTextScheduled: #479BFF;
+  --statusColorDisactive: #ffe7e7;
+  --statusTextDisactive: #ff5656;
 
-    --iconLightColor: #E8EDF2;
-    --iconLightText: #BAC6D1;
+  --statusColorScheduled: #f0f6fe;
+  --statusTextScheduled: #479bff;
 
-    //Buttons Area
-    --buttonPrimaryColor: var(--primary);
-    --buttonPrimaryText: var(--primary-text);
-    --buttonPrimaryHoverColor: #e4841b;
+  --iconLightColor: #e8edf2;
+  --iconLightText: #bac6d1;
 
-    --buttonSecondaryColor: rgba(255, 147, 30, 0.16);
-    --buttonSecondaryText: #FF931E;
-    --buttonSecondaryHoverColor: #fcd5b5;
+  //Buttons Area
+  --buttonPrimaryColor: var(--primary);
+  --buttonPrimaryText: var(--primary-text);
+  --buttonPrimaryHoverColor: #e4841b;
 
-    --buttonActiveColor: var(--statusTextActive);
-    --buttonActiveText: #fff;
-    --buttonActiveHoverColor: #15c063;
-    --buttonActiveHoverText: #fff;
-    --buttonActiveDisabledFill: #c8ded2;
-    --buttonActiveDisabledText: #6c957f;
+  --buttonSecondaryColor: rgba(255, 147, 30, 0.16);
+  --buttonSecondaryText: #ff931e;
+  --buttonSecondaryHoverColor: #fcd5b5;
 
-    --buttonDangerColor: var(--statusTextDisactive);
-    --buttonDangerText: #fff;
-    --buttonDangerHoverColor: #d14040;
-    --buttonDangerHoverText: #fff;
+  --buttonActiveColor: var(--statusTextActive);
+  --buttonActiveText: #fff;
+  --buttonActiveHoverColor: #15c063;
+  --buttonActiveHoverText: #fff;
+  --buttonActiveDisabledFill: #c8ded2;
+  --buttonActiveDisabledText: #6c957f;
 
-    --buttonCleanColor: transparent;
-    --buttonCleanText: var(--text);
-    --buttonCleanHoverColor: var(--iconLightColor);
+  --buttonDangerColor: var(--statusTextDisactive);
+  --buttonDangerText: #fff;
+  --buttonDangerHoverColor: #d14040;
+  --buttonDangerHoverText: #fff;
+
+  --buttonCleanColor: transparent;
+  --buttonCleanText: var(--text);
+  --buttonCleanHoverColor: var(--iconLightColor);
 }

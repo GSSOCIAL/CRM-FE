@@ -2,9 +2,9 @@ import ModuleConfig from "@/config/index";
 import type { TableBuilderColumn } from "@/interfaces/table";
 import type { ModuleFilter } from "@/interfaces/filter";
 
-export default class ContactsConfig extends ModuleConfig {
-  route = "contacts";
-  label = "contacts.moduleName";
+export default class LeadsConfig extends ModuleConfig {
+  route = "leads";
+  label = "leads.moduleName";
   icon = "linearGrid1";
 
   get columns(): Array<TableBuilderColumn> {
