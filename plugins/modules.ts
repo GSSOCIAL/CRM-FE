@@ -3,6 +3,7 @@ import ContactsConfig from "~/config/modules/contacts";
 import LeadsConfig from "~/config/modules/leads";
 import TasksConfig from "~/config/modules/tasks";
 import ReportsConfig from "~/config/modules/reports";
+import SettingsConfig from "~/config/modules/settings";
 
 export default defineNuxtPlugin((nuxtApp) => {
   const modules = {
@@ -11,6 +12,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     leads: new LeadsConfig(),
     tasks: new TasksConfig(),
     reports: new ReportsConfig(),
+    settings: new SettingsConfig(),
   };
   return {
     provide: {

@@ -15,6 +15,9 @@ export default {
     {
       module: "reports",
     },
+    {
+      module: "settings",
+    },
   ],
 } as {
   [navigation: string]: Array<{

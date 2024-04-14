@@ -39,5 +39,15 @@ const locale = {
       draft: "Draft",
     },
   },
+  settings: {
+    moduleName: "Settings",
+    preferences: {
+      label: "Preferences",
+      fields: {
+        language: "Language",
+        theme: "Select theme",
+      },
+    },
+  },
 };
 export default locale;
