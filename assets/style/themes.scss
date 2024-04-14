@@ -1,11 +1,26 @@
 :root {
-  --fill-primary: #f7f9ff;
+  /***** Constants *****/
+  --themeLightBackgroundFill: #f7f9ff;
+  --themeLightSidebarFill: #f3f4f8;
+  --themeLightSidebarItem: #ecedef;
+  --themeLightSidebarPrimary: #3f8cff;
+  --themeLightContentItem: #ecedef;
+  --themeLightContentPrimary: #3f8cff;
+
+  --themeDarkBackgroundFill: #353639;
+  --themeDarkSidebarFill: #202124;
+  --themeDarkSidebarItem: #ecedef;
+  --themeDarkSidebarPrimary: #3f8cff;
+  --themeDarkContentItem: #ecedef;
+  --themeDarkContentPrimary: #3f8cff;
+
+  --fill-primary: var(--themeLightBackgroundFill);
   --fill-secondary: #f9fafc;
   --fill-section: #fff;
   --text-primary: #1e293f;
   --text-secondary: #a2a5b4;
 
-  --primary: #3f8cff; //Primary color
+  --primary: var(--themeLightContentPrimary); //Primary color
   --primary-text: #fff; //Text color for primary fill
 
   --area-placeholder-fill: #e1e4ea;
@@ -16,7 +31,7 @@
 
   /***** Layout defines *****/
   //Sidebar
-  --sidebar-fill: #f3f4f8;
+  --sidebar-fill: var(--themeLightSidebarFill);
   --sidebar-text: var(--text-primary);
 
   --sidebar-navigation-focus-fill: #2884ff;
@@ -71,4 +86,13 @@
   --buttonCleanColor: transparent;
   --buttonCleanText: var(--text);
   --buttonCleanHoverColor: var(--iconLightColor);
+}
+
+html[data-theme='dark'] {
+  --fill-primary: var(--themeDarkBackgroundFill);
+  --fill-secondary: #202124;
+  --fill-section: #202124;
+  --text-primary: #fff;
+  --text-secondary: #a2a5b4;
+  --sidebar-fill: var(--themeDarkSidebarFill);
 }

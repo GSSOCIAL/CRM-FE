@@ -1,3 +1,8 @@
+<script setup lang="ts">
+const { $theme } = useNuxtApp();
+$theme.load();
+</script>
+
 <template>
   <div class="applicationLayout">
     <LayoutSidebar />
@@ -9,11 +14,12 @@
 </template>
 
 <style lang="scss">
-.applicationLayout{
+.applicationLayout {
   display: flex;
   flex-direction: row;
-  >.applicationLayoutSidebar{}
-  >.applicationLayoutContent{
+  > .applicationLayoutSidebar {
+  }
+  > .applicationLayoutContent {
     width: 100%;
     min-height: 100vh;
   }

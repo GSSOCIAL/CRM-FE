@@ -93,6 +93,7 @@ provide("TabsProvider", { registerChild, unregisterChild });
     display: grid;
     grid-template-columns: 160px 1fr;
     > .tabsHeader {
+      flex-direction: column;
       border-bottom-width: 0px;
       border-right: 2px solid var(--divider);
       .tabHeaderItem {

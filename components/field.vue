@@ -3,6 +3,7 @@
     class="fieldContainer"
     :class="{
       disabled: disabled,
+      [`type${type}`]: true,
     }"
   >
     <div class="fieldLabel">{{ label }}</div>
@@ -16,10 +17,12 @@
 import { h } from "vue";
 import FieldText from "@/components/field/text.vue";
 import FieldEnum from "@/components/field/enum.vue";
+import FieldOption from "@/components/field/option.vue";
 
 const constructors: { [type: string]: any } = {
   text: FieldText,
   enum: FieldEnum,
+  option: FieldOption,
 };
 
 const props = defineProps({
@@ -75,12 +78,11 @@ const Subfield = () =>
   width: 100%;
   > .fieldLabel {
     @include label;
+    padding-bottom: 6px;
   }
   > .fieldWrapper {
     width: 100%;
-    background-color: var(--field-fill);
     color: var(--field-text);
-    border: 1px solid var(--field-outline);
     border-radius: 8px;
 
     input {
@@ -96,6 +98,12 @@ const Subfield = () =>
         color: var(--field-placeholder);
         font-size: 14px;
       }
+    }
+  }
+  &:not(.typeoption) {
+    > .fieldWrapper {
+      background-color: var(--field-fill);
+      border: 1px solid var(--field-outline);
     }
   }
 }

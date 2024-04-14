@@ -20,7 +20,9 @@ const { $getModule, $userHasRole, $api } = useNuxtApp();
       <Tabs :vertical="true">
         <Tab id="preferences" :name="$t('settings.preferences.label')">
           <FormBuilder>
-            <FormsSettingsPreferences />
+            <ContentWrapper>
+              <FormsSettingsPreferences />
+            </ContentWrapper>
           </FormBuilder>
         </Tab>
       </Tabs>

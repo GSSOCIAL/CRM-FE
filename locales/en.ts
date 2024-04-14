@@ -45,6 +45,7 @@ const locale = {
       label: "Preferences",
       fields: {
         language: "Language",
+        appearance: "Appearance",
         theme: "Select theme",
       },
     },
