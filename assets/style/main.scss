@@ -16,7 +16,9 @@ body {
   font-weight: normal;
   font-style: normal;
   font-variation-settings: "wdth" 100;
-
+  transition:
+    0.2s cubic-bezier(0.4, 0, 1, 1) background-color,
+    1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) color;
   * {
     box-sizing: border-box;
     position: relative;

@@ -8,7 +8,7 @@
   --themeLightContentPrimary: #3f8cff;
 
   --themeDarkBackgroundFill: #353639;
-  --themeDarkSidebarFill: #202124;
+  --themeDarkSidebarFill: #161719;
   --themeDarkSidebarItem: #ecedef;
   --themeDarkSidebarPrimary: #3f8cff;
   --themeDarkContentItem: #ecedef;
@@ -19,6 +19,8 @@
   --fill-section: #fff;
   --text-primary: #1e293f;
   --text-secondary: #a2a5b4;
+  --fill-popup: var(--fill-section);
+  --fill-dropdown: var(--fill-popup);
 
   --primary: var(--themeLightContentPrimary); //Primary color
   --primary-text: #fff; //Text color for primary fill
@@ -88,11 +90,14 @@
   --buttonCleanHoverColor: var(--iconLightColor);
 }
 
-html[data-theme='dark'] {
+html[data-theme="dark"] {
   --fill-primary: var(--themeDarkBackgroundFill);
-  --fill-secondary: #202124;
-  --fill-section: #202124;
+  --fill-secondary: #3c4041;
+  --fill-section: #252628;
   --text-primary: #fff;
-  --text-secondary: #a2a5b4;
+  --text-secondary: #66696e;
   --sidebar-fill: var(--themeDarkSidebarFill);
+  --divider: #282a29;
+  --field-fill: #252628;
+  --field-placeholder: #9598a1;
 }

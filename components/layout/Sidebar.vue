@@ -70,9 +70,14 @@ let navigation = (navigationDefs.sidebar || [])
   display: flex;
   flex-direction: column;
   border-right: 1px solid var(--divider);
+  transition:
+    0.2s cubic-bezier(0.4, 0, 1, 1) background-color,
+    1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) color,
+    0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) border-right;
   .sidebarGlobalSearch {
     padding: 12px var(--padding);
     border-bottom: 1px solid var(--divider);
+    transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) border-bottom;
   }
   .sidebarNavigation {
     height: 100%;

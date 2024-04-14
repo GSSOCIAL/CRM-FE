@@ -1,0 +1,207 @@
+@mixin gradientA {
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+  color: #fff;
+}
+@mixin gradientB {
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+  color: #fff;
+}
+@mixin gradientC {
+  background-color: #8ec5fc;
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+  color: #fff;
+}
+@mixin gradientD {
+  background-color: #d9afd9;
+  background-image: linear-gradient(0deg, #d9afd9 0%, #97d9e1 100%);
+
+  color: #fff;
+}
+@mixin gradientE {
+  background-color: #fbab7e;
+  background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
+  color: #694b32;
+}
+
+@mixin gradientF {
+  background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+  color: #fff;
+}
+
+@mixin gradientG {
+  background-color: #8bc6ec;
+  background-image: linear-gradient(135deg, #8bc6ec 0%, #9599e2 100%);
+
+  color: #fff;
+}
+
+@mixin gradientH {
+  background-color: #52acff;
+  background-image: linear-gradient(180deg, #52acff 25%, #ffe32c 100%);
+  color: #fff;
+}
+
+@mixin gradientI {
+  background-color: #ffdee9;
+  background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
+
+  color: #fff;
+}
+
+@mixin gradientJ {
+  background-color: #ffe53b;
+  background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
+
+  color: #fff;
+}
+
+@mixin gradientK {
+  background-color: #ff9a8b;
+  background-image: linear-gradient(
+    90deg,
+    #ff9a8b 0%,
+    #ff6a88 55%,
+    #ff99ac 100%
+  );
+
+  color: #fff;
+}
+
+@mixin gradientL {
+  background-color: #fad961;
+  background-image: linear-gradient(90deg, #fad961 0%, #f76b1c 100%);
+
+  color: #fff;
+}
+
+@mixin gradientM {
+  background-color: #fad961;
+  background-image: linear-gradient(90deg, #fad961 0%, #f76b1c 100%);
+
+  color: #694b32;
+}
+
+@mixin gradientN {
+  background-color: #74ebd5;
+  background-image: linear-gradient(90deg, #74ebd5 0%, #9face6 100%);
+
+  color: #fff;
+}
+
+@mixin gradientO {
+  background-image: linear-gradient(
+    109.6deg,
+    rgba(61, 131, 97, 1) 11.2%,
+    rgba(28, 103, 88, 1) 91.1%
+  );
+  color: #fff;
+}
+@mixin gradientP {
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(100, 43, 115, 1) 0%,
+    rgba(4, 0, 4, 1) 90%
+  );
+  color: #fff;
+}
+
+@mixin gradientQ {
+  background-image: linear-gradient(
+    86.3deg,
+    rgba(0, 119, 182, 1) 3.6%,
+    rgba(8, 24, 68, 1) 87.6%
+  );
+  color: #fff;
+}
+
+@mixin gradientR {
+  background-image: linear-gradient(
+    109.6deg,
+    rgba(103, 30, 117, 1) 11.2%,
+    rgba(252, 76, 2, 1) 91.1%
+  );
+  color: #fff;
+}
+
+@mixin gradientS {
+  background-image: radial-gradient(
+    circle 860px at 11.8% 33.5%,
+    rgba(240, 30, 92, 1) 0%,
+    rgba(244, 49, 74, 1) 30.5%,
+    rgba(249, 75, 37, 1) 56.1%,
+    rgba(250, 88, 19, 1) 75.6%,
+    rgba(253, 102, 2, 1) 100.2%
+  );
+  color: #fff;
+}
+
+@mixin gradientT {
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(0, 152, 155, 1) 0.1%,
+    rgba(0, 94, 120, 1) 94.2%
+  );
+  color: #fff;
+}
+
+@mixin gradientU {
+  background-image: linear-gradient(
+    99deg,
+    rgba(115, 18, 81, 1) 10.6%,
+    rgba(28, 28, 28, 1) 118%
+  );
+  color: #fff;
+}
+
+@mixin gradientV {
+  background-image: linear-gradient(
+    106.9deg,
+    rgba(148, 14, 60, 1) 60.9%,
+    rgba(3, 22, 27, 1) 122.3%
+  );
+  color: #fff;
+}
+
+@mixin gradientW {
+  background-image: radial-gradient(
+    circle 941px at 2.6% 6.8%,
+    rgba(124, 74, 228, 0.81) 15.9%,
+    rgba(249, 208, 40, 0.7) 88.6%
+  );
+  color: #fff;
+}
+
+@mixin gradientX {
+  background-image: radial-gradient(
+    circle 674px at 18.3% 77%,
+    rgba(139, 186, 244, 1) 3.4%,
+    rgba(15, 51, 92, 1) 56.6%
+  );
+  color: #fff;
+}
+
+@mixin gradientY {
+  background-image: linear-gradient(
+    102.1deg,
+    rgba(96, 221, 142, 1) 8.7%,
+    rgba(24, 138, 141, 1) 88.1%
+  );
+  color: #fff;
+}
+
+@mixin gradientZ {
+  background-image: linear-gradient(
+    76.3deg,
+    rgba(44, 62, 78, 1) 12.6%,
+    rgba(69, 103, 131, 1) 82.8%
+  );
+  color: #fff;
+}
