@@ -4,7 +4,10 @@ import LeadsConfig from "~/config/modules/leads";
 import TasksConfig from "~/config/modules/tasks";
 import ReportsConfig from "~/config/modules/reports";
 import SettingsConfig from "~/config/modules/settings";
+import VisitsConfig from "~/config/modules/visits";
 
+//Custom modules
+import ClientsConfig from "~/config/modules/custom/clients";
 export default defineNuxtPlugin((nuxtApp) => {
   const modules = {
     dashboard: new DashboardConfig(),
@@ -13,6 +16,10 @@ export default defineNuxtPlugin((nuxtApp) => {
     tasks: new TasksConfig(),
     reports: new ReportsConfig(),
     settings: new SettingsConfig(),
+    visits: new VisitsConfig(),
+    ...{
+      clients: new ClientsConfig()
+    },
   };
   return {
     provide: {

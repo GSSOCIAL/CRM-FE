@@ -4,6 +4,12 @@ export default {
       module: "dashboard",
     },
     {
+      module: "clients",
+    },
+    {
+      module: "visits",
+    },
+    {
       module: "contacts",
     },
     {

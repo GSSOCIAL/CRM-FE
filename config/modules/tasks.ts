@@ -4,7 +4,7 @@ import type { ModuleFilter } from "@/interfaces/filter";
 
 export default class TasksConfig extends ModuleConfig {
   route = "tasks";
-  label = "Tasks";
+  label = "tasks.moduleName";
   icon = "linearGrid1";
 
   get columns(): Array<TableBuilderColumn> {

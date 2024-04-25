@@ -39,6 +39,16 @@ const locale = {
       draft: "Draft",
     },
   },
+  visits: {
+    moduleName: "Visits",
+    pages: {
+      view: "Visit"
+    },
+    fields: {},
+    tabs: {
+      all: "All Visits"
+    }
+  },
   settings: {
     moduleName: "Settings",
     preferences: {
@@ -50,5 +60,27 @@ const locale = {
       },
     },
   },
+  ...{
+    clients: {
+      moduleName: "Clients",
+      pages: {
+        add: "Create Client",
+        edit: "Edit Client",
+        view: "View Client"
+      },
+      fields: {},
+      tabs: {}
+    },
+    tasks: {
+      moduleName: "Tasks",
+      pages: {
+        add: "Create Task",
+        edit: "Edit Task",
+        view: "View Task"
+      },
+      fields: {},
+      tabs: {}
+    }
+  }
 };
 export default locale;
