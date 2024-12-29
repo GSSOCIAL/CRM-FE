@@ -1,0 +1,23 @@
+:root {
+    --Fill-Primary: #fff;
+    --Text-On-Fill-Primary: #000113;
+    --Fill-Secondary: #f4f6f9;
+    --Text-On-Fill-Secondary: #4a5970;
+    --Fill-Tertiary: #f6faff;
+    --Text-On-Fill-Tertiary: #717985;
+    --Fill-Divider: #dbe0eb;
+
+    --Primary: #0169ff;
+    --Secondary: #f4f6f9;
+
+    --Fill-Background: linear-gradient(0deg, #fff 0%, #fff 80%, #f0f6ff 100%);
+    --Text-On-Fill-Background: var(--Text-On-Fill-Primary);
+    --Fill-Sidebar: var(--Fill-Primary);
+    --Text-On-Fill-Sidebar: var(--Text-On-Fill-Primary);
+    --Fill-Header: var(--Fill-Primary);
+    --Text-On-Fill-Header: var(--Text-On-Fill-Primary);
+    --Fill-Icon: var(--Text-On-Fill-Secondary);
+    --Fill-Field: var(--Fill-Secondary);
+    --Text-On-Fill-Field: var(--Text-On-Fill-Secondary);
+    --Placeholder-On-Fill-Field: var(--Text-On-Fill-Tertiary);
+}

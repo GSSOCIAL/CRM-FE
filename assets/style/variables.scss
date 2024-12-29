@@ -1,5 +1,18 @@
-:root{
-    --padding: 16px;
-    --font-default: 14px;
-    --font-label: 12px;
+:root {
+    --padding: 12px;
+
+    --fontSize-Title: 24px;
+    --fontWeight-Title: 600;
+
+    --fontSize-Body: 14px;
+    --fontWeight-Body: 400;
+
+    --fontSize-Headline: 12px;
+    --fontWeight-Headline: 500;
+
+    --fontSize-Callout: 14px;
+    --fontWeight-Callout: 400;
+
+    --fontSize-Subhead: 14px;
+    --fontWeight-Subhead: 600;
 }

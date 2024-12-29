@@ -1,5 +1,3 @@
 <template>
-  <div class="applicationGlobalContainer">
-    <NuxtLayout />
-  </div>
+  <NuxtPage page-key="primary" />
 </template>

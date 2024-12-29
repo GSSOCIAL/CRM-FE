@@ -1,0 +1,13 @@
+@mixin MaterialFill {
+    z-index: 0;
+
+    &:before {
+        content: "";
+        display: block;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+}

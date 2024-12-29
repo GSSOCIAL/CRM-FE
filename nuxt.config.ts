@@ -11,6 +11,10 @@ export default defineNuxtConfig({
   i18n: {
     vueI18n: "./i18n.config.ts",
   },
+  components: {
+    global: true,
+    dirs: ['~/components', '~/custom/components']
+  },
   devServer: {
     //https: true,
     disableHostCheck: true,

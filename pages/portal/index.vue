@@ -1,7 +1,3 @@
-<script setup lang="ts">
-const editMode = useState("editMode", () => false);
-</script>
-
 <template>
   <PageWrapper>
     <PageHead style="padding-top: 32px">
@@ -23,3 +19,6 @@ const editMode = useState("editMode", () => false);
     <Widgets :editMode="editMode" />
   </PageWrapper>
 </template>
+<script setup lang="ts">
+const editMode = useState("editMode", () => false);
+</script>

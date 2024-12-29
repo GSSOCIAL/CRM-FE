@@ -3,42 +3,43 @@
     <table>
       <thead>
         <tr>
-          <th class="hiddenCell"></th>
-          <th v-for="column in selectedColumns" :key="column.prop">
-            {{ column.label }}
-          </th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Middle Name</th>
         </tr>
       </thead>
       <tbody>
-        <slot></slot>
+        <tr>
+          <td>Jeremy</td>
+          <td>M. Tannehill</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Jeremy</td>
+          <td>M. Tannehill</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Jeremy</td>
+          <td>M. Tannehill</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Jeremy</td>
+          <td>M. Tannehill</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Jeremy</td>
+          <td>M. Tannehill</td>
+          <td></td>
+        </tr>
       </tbody>
     </table>
   </div>
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
-  columns: {
-    type: Array,
-    default: [],
-    required: true,
-  },
-});
-const { columns } = props;
-const selectedColumns = computed(() => {
-  let modifiedColumns = columns.filter((column) => {
-    if (column?.isDisplayed == true) return true;
-    if (column?.isDisplayed == false) return false;
-    if (column?.isDefaultColumn == false) return false;
-    return true;
-  });
-  modifiedColumns.sort(sortByOrder);
-  return modifiedColumns;
-});
-
-let sortByOrder = (a, b) => {
-  return a.order < b.order ? -1 : 1;
-};
 </script>
 
 <style lang="scss">
@@ -47,46 +48,36 @@ let sortByOrder = (a, b) => {
   width: 100%;
   border-spacing: 0px;
   text-align: left;
-  background-color: var(--fill-section);
+  background-color: var(--Fill-Primary);
+  color: var(--Text-On-Primary);
   > table {
     border-spacing: 0px;
     width: 100%;
-    border: 1px solid var(--divider);
-    border-radius: 6px;
+    border: 1px solid var(--Fill-Divider);
     overflow: hidden;
     > thead {
       > tr {
-        @include label;
-        background-color: var(--fill-secondary);
-        font-size: 13px;
         > th {
-          font-size: 12px;
-          color: var(--text-secondary);
-          font-weight: 600;
-          border-bottom: 1px solid var(--divider);
-          padding: 12px;
+          border-bottom: 1px solid var(--Fill-Divider);
+          color: var(--Text-On-Fill-Tertiary);
+          @include text("headline");
         }
       }
     }
     > tbody {
       > tr {
-        font-size: 13px;
-        color: var(--text-primary);
         > td,
         > th {
-          font-weight: normal;
-          padding: 12px;
+          @include text("body");
         }
         &:nth-child(odd) {
-          background-color: var(--fill-section);
         }
         &:nth-child(even) {
-          background-color: #f7faff;
         }
         &:not(:last-child) {
           > td,
           > th {
-            border-bottom: 1px solid var(--divider);
+            border-bottom: 1px solid var(--Fill-Divider);
           }
         }
       }

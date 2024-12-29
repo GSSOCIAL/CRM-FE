@@ -1,36 +1,28 @@
-<!-- 
-Generic module page
--->
-<script setup lang="ts">
-import { PlatformRoute } from "@/helpers/constants";
-const { $getModule, $userHasRole, $api } = useNuxtApp();
-
-//MARK: Check if module exists
-const route = useRoute();
-const moduleId = route.params?.module;
-if (!$getModule(moduleId)) {
-  await navigateTo(`${PlatformRoute}404`);
-}
-</script>
-
 <template>
-  <PageWrapper>
-    <Breadcrumbs
-      :path="[
-        {
-          url: $getModule(moduleId).route,
-          label: $t($getModule(moduleId).label),
-        },
-      ]"
-    />
-    <PageHead>
-      <template v-slot:default>{{ $t($getModule(moduleId).label) }}</template>
-      <template v-slot:actions>
-        <nuxt-link :to="`${$getModule(moduleId).route}/add`" class="buttonLink">
-          <Button type="primary">{{ $t("dashboard.actions.create") }}</Button>
-        </nuxt-link>
-      </template>
-    </PageHead>
-    <Tabs> </Tabs>
-  </PageWrapper>
+  <component :is="context">
+    <component :is="wrapper">
+      <component :is="page">
+        <component :is="heading">
+          <template #default>
+            {{ $t("contacts.title") }}
+          </template>
+          <template #description>
+            {{ $t("contacts.description") }}
+          </template>
+        </component>
+        <component :is="widgets" />
+        <component :is="list" />
+      </component>
+    </component>
+  </component>
 </template>
+
+<script setup lang="ts">
+import vertex from "vertex-admin";
+const context = resolveComponent(vertex.getComponent("LayoutContext"));
+const wrapper = resolveComponent(vertex.getComponent("LayoutWrapper"));
+const page = resolveComponent(vertex.getComponent("LayoutPage"));
+const heading = resolveComponent(vertex.getComponent("LayoutHeading"));
+const widgets = resolveComponent(vertex.getComponent("Widgets"));
+const list = resolveComponent(vertex.getComponent("ViewList"));
+</script>

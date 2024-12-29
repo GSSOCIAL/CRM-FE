@@ -6,9 +6,12 @@
       [`type${type}`]: true,
     }"
   >
-    <div class="fieldLabel">{{ label }}</div>
-    <div class="fieldWrapper">
-      <Subfield @update:modelValue="update" />
+    <div class="fieldContainerLabel">{{ label }}</div>
+    <div class="fieldContainerWrapper">
+      <Subfield
+        @update:modelValue="update"
+        :placeholder="$t('fields.search')"
+      />
     </div>
   </div>
 </template>
@@ -42,7 +45,7 @@ const props = defineProps({
     required: false,
   },
   type: {
-    type: String as unknown as keyof typeof constructors,
+    type: String,
     default: "text",
     required: false,
   },
@@ -59,7 +62,7 @@ const props = defineProps({
 });
 const emit = defineEmits(["update:modelValue"]);
 
-const update = (value) => {
+const update = (value: any) => {
   emit("update:modelValue", value);
 };
 
@@ -73,37 +76,37 @@ const Subfield = () =>
 </script>
 
 <style lang="scss">
-@import "assets/style/mixins.scss";
+@import "@/assets/style/mixins.scss";
 .fieldContainer {
   width: 100%;
-  > .fieldLabel {
-    @include label;
-    padding-bottom: 6px;
+  &Label {
   }
-  > .fieldWrapper {
+  &Wrapper {
     width: 100%;
-    color: var(--field-text);
-    border-radius: 8px;
-
-    input {
-      box-shadow: none;
-      outline: none;
-      background-color: transparent;
-      border: none;
-      padding: 8px 10px;
-      font-size: 14px;
-      width: 100%;
-      &::placeholder {
-        @include label;
-        color: var(--field-placeholder);
-        font-size: 14px;
-      }
+    z-index: 0;
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: var(--Fill-Field);
+      border-radius: 4px;
     }
-  }
-  &:not(.typeoption) {
-    > .fieldWrapper {
-      background-color: var(--field-fill);
-      border: 1px solid var(--field-outline);
+    input {
+      border: 0px;
+      outline: 0px;
+      box-shadow: none;
+      width: 100%;
+      color: var(--Text-On-Fill-Field);
+      background: transparent;
+      padding: var(--padding);
+      @include text("callout");
+      &::placeholder {
+        color: var(--Placeholder-On-Fill-Field);
+      }
     }
   }
 }

@@ -1,86 +1,34 @@
 const locale = {
-  login: {
-    Welcome: "Welcome back!",
+  fields: {
+    search: "Search"
   },
-  dashboard: {
-    home: "Home",
-    fields: {
-      search: "Search",
-    },
+  actions: {
+    addWidget: "Add"
+  },
+  sidebar: {
     actions: {
-      create: "Create",
-      add: "Add",
-      remove: "Remove",
-      delete: "Delete",
-      save: "Save",
-      update: "Update",
-      filters: "Filters",
-      manageColumns: "Manage Columns",
-      editPage: "Edit Page",
-      addWidget: "Add Widget",
-    },
+      collapse: "Collapse"
+    }
+  },
+  navigation: {
+    main: "Main",
+    dashboard: "Dashboard",
+    settings: "Settings",
+    integrations: "Integrations",
+    appearance: "Appearance",
+    contacts: "Contacts",
+  },
+  integrations: {
+    title: "Integrations & Workflows",
+    description: "Connect tools to supercharge your flow"
+  },
+  appearance: {
+    title: "Appearance",
+    description: "Appearance settings let you customize the look and feel of your app, including themes, colors, and fonts."
   },
   contacts: {
-    moduleName: "Contacts",
-    pages: {
-      add: "Create Contact",
-      edit: "Edit Contact",
-    },
-    fields: {
-      firstName: "First Name",
-      lastName: "Last Name",
-    },
-    sections: {
-      details: "Details",
-    },
-    tabs: {
-      all: "All Contacts",
-      pending: "Pending",
-      draft: "Draft",
-    },
+    title: "Contacts",
+    description: "Manage contacts"
   },
-  visits: {
-    moduleName: "Visits",
-    pages: {
-      view: "Visit"
-    },
-    fields: {},
-    tabs: {
-      all: "All Visits"
-    }
-  },
-  settings: {
-    moduleName: "Settings",
-    preferences: {
-      label: "Preferences",
-      fields: {
-        language: "Language",
-        appearance: "Appearance",
-        theme: "Select theme",
-      },
-    },
-  },
-  ...{
-    clients: {
-      moduleName: "Clients",
-      pages: {
-        add: "Create Client",
-        edit: "Edit Client",
-        view: "View Client"
-      },
-      fields: {},
-      tabs: {}
-    },
-    tasks: {
-      moduleName: "Tasks",
-      pages: {
-        add: "Create Task",
-        edit: "Edit Task",
-        view: "View Task"
-      },
-      fields: {},
-      tabs: {}
-    }
-  }
 };
 export default locale;
