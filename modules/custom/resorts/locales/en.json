@@ -1,0 +1,17 @@
+{
+  "navigation": {
+    "resorts": "Resorts"
+  },
+  "resorts": {
+    "title": "Resorts",
+    "description": "Manage resorts",
+    "list": {
+      "id": "Id"
+    }
+  },
+  "modules": {
+    "resorts": {
+      "module": "Resorts"
+    }
+  }
+}

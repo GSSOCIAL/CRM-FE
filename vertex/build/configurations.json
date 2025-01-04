@@ -1,44 +1,44 @@
 {
-    "mods": [],
-    "languages": [],
-    "layouts": [],
-    "groups": [],
-    "permissions": [],
-    "navigation": [
+  "mods": ["resorts"],
+  "languages": [],
+  "layouts": [],
+  "groups": [],
+  "permissions": [],
+  "navigation": [
+    {
+      "id": "sidebar",
+      "items": [
         {
-            "id": "sidebar",
-            "items": [
-                {
-                    "label": "navigation.main",
-                    "items": [
-                        {
-                            "label": "navigation.dashboard",
-                            "route": "/portal/"
-                        },
-                        {
-                            "label": "navigation.contacts",
-                            "route": "/portal/contacts"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "sidebar-actions",
-            "items": [
-                {
-                    "label": "",
-                    "items": [
-                        {
-                            "label": "navigation.settings",
-                            "route": "/portal/settings/"
-                        }
-                    ]
-                }
-            ]
+          "label": "navigation.main",
+          "items": [
+            {
+              "label": "navigation.dashboard",
+              "route": "/portal/"
+            },
+            {
+              "label": "navigation.resorts",
+              "route": "/portal/resorts"
+            }
+          ]
         }
-    ],
-    "globalSearch": {
-        "enabled": true
+      ]
+    },
+    {
+      "id": "sidebar-actions",
+      "items": [
+        {
+          "label": "",
+          "items": [
+            {
+              "label": "navigation.settings",
+              "route": "/portal/settings/"
+            }
+          ]
+        }
+      ]
     }
+  ],
+  "globalSearch": {
+    "enabled": true
+  }
 }

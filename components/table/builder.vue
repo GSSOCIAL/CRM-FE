@@ -3,36 +3,16 @@
     <table>
       <thead>
         <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Middle Name</th>
+          <th v-for="column in columns" :key="column.prop">
+            {{ $t(column.label) }}
+          </th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Jeremy</td>
-          <td>M. Tannehill</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Jeremy</td>
-          <td>M. Tannehill</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Jeremy</td>
-          <td>M. Tannehill</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Jeremy</td>
-          <td>M. Tannehill</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Jeremy</td>
-          <td>M. Tannehill</td>
-          <td></td>
+        <tr v-for="(row, i) in rows" :key="i">
+          <td v-for="column in columns" :key="`${i}_${column.prop}`">
+            {{ row[column.prop] }}
+          </td>
         </tr>
       </tbody>
     </table>
@@ -40,6 +20,25 @@
 </template>
 
 <script setup lang="ts">
+const props = defineProps({
+  columns: {
+    type: Array,
+    required: false,
+    default: [],
+  },
+  data: {
+    type: Array,
+    required: false,
+    default: [],
+  },
+});
+
+const { columns, data } = props;
+const rows = computed(() => {
+  return [...data].map((row) => {
+    return row;
+  });
+});
 </script>
 
 <style lang="scss">

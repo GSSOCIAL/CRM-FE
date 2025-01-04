@@ -1,0 +1,27 @@
+{
+  "navigation": {
+    "settings": "Settings",
+    "integrations": "Integrations",
+    "appearance": "Appearance",
+    "modules": "Modules"
+  },
+  "modulesList": {
+    "settings": "Settings"
+  },
+  "appearance": {
+    "title": "Appearance",
+    "description": "Appearance settings let you customize the look and feel of your app, including themes, colors, and fonts."
+  },
+  "integrations": {
+    "title": "Integrations & Workflows",
+    "description": "Connect tools to supercharge your flow"
+  },
+  "modules": {
+    "title": "Modules",
+    "description": "Portal modules support",
+    "listColumns": {
+      "key": "Id",
+      "module": "Name"
+    }
+  }
+}

@@ -21,6 +21,10 @@ const items = [
         label: "navigation.appearance",
         route: `/portal/settings/appearance`,
       },
+      {
+        label: "navigation.modules",
+        route: `/portal/settings/modules`,
+      },
     ],
   },
   {
@@ -35,5 +39,4 @@ const items = [
 ];
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
