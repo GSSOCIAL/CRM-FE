@@ -31,11 +31,14 @@ const renderNavigation = (item: VertexNavigation) => {
                   class: "applicationLayoutBasicSidebarNavigationItemLabel",
                   to: item.route ?? "",
                 },
-                item.route
-                  ? {
-                      default: () => h("span", t(item.label)),
-                    }
-                  : [h("span", t(item.label))]
+                [
+                  item.icon
+                    ? h(resolveComponent("icon"), {
+                        icon: item.icon,
+                      })
+                    : h("div"),
+                  h("span", t(item.label)),
+                ]
               ),
             ]
           : [],
@@ -98,6 +101,23 @@ const navigationLayout = () => {
           color: var(--Text-On-Fill-Secondary);
           text-decoration: none;
           z-index: 0;
+          grid-template-columns: 24px 1fr;
+          grid-gap: 6px;
+          align-items: center;
+          .iconContainer {
+            svg {
+              * {
+                fill: none;
+                stroke: none;
+              }
+              *[fill] {
+                fill: var(--Text-On-Fill-Secondary);
+              }
+              *[stroke] {
+                stroke: var(--Text-On-Fill-Secondary);
+              }
+            }
+          }
           &:before {
             content: "";
             position: absolute;
@@ -128,9 +148,68 @@ const navigationLayout = () => {
       @include text("headline");
       cursor: default;
       padding-bottom: 2px;
+      display: grid;
+      grid-template-columns: 0px 1fr;
+      grid-gap: 0px;
+      align-items: center;
     }
     &:not(:last-child) {
       border-bottom: 1px solid var(--Fill-Divider);
+    }
+  }
+}
+
+body[sidebar="closed"] {
+  .applicationLayoutBasicSidebarNavigation {
+    .applicationLayoutBasicSidebarNavigationItem {
+      .applicationLayoutBasicSidebarNavigationItemLabel {
+        display: flex;
+        z-index: 2;
+        width: 100%;
+        padding: 0px;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        &:after {
+          content: "";
+          display: block;
+          padding-top: 100%;
+        }
+        .iconContainer {
+          position: absolute;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          width: initial;
+          height: initial;
+        }
+        span {
+          position: absolute;
+          display: flex;
+          left: calc(100% + 200px);
+          opacity: 0;
+          transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 0.87);
+          background: rgba(0, 0, 0, 0.8);
+          border-radius: 2px;
+          padding: 4px;
+          color: #fff;
+        }
+        &:hover {
+          span {
+            opacity: 1;
+            left: 100%;
+          }
+        }
+      }
+    }
+    & > .applicationLayoutBasicSidebarNavigationItem {
+      & > .applicationLayoutBasicSidebarNavigationItemLabel {
+        display: none;
+      }
     }
   }
 }

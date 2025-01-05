@@ -15,4 +15,34 @@ export default class ResortsConfig extends ModuleConfig {
       },
     ];
   }
+
+  get createForm() {
+    return [
+      {
+        key: "general",
+        tab: "resorts.tabs.general",
+        sections: [
+          {
+            key: "general",
+            label: "resorts.sections.general",
+            rows: [
+              [
+                {
+                  id: "name",
+                  label: "resorts.fields.name-label",
+                  placeholder: "resorts.fields.name-placeholder",
+                },
+              ],
+            ],
+          },
+        ],
+      },
+    ];
+  }
+
+  create(payload) {
+    return new Promise((resolve, reject) => {
+      return resolve(payload);
+    });
+  }
 }

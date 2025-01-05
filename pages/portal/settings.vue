@@ -25,6 +25,10 @@ const items = [
         label: "navigation.modules",
         route: `/portal/settings/modules`,
       },
+      {
+        label: "navigation.sidebar",
+        route: `/portal/settings/sidebar`,
+      },
     ],
   },
   {

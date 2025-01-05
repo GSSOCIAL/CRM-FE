@@ -13,11 +13,13 @@
           "items": [
             {
               "label": "navigation.dashboard",
-              "route": "/portal/"
+              "route": "/portal/",
+              "icon": "lineargrid1"
             },
             {
               "label": "navigation.resorts",
-              "route": "/portal/resorts"
+              "route": "/portal/resorts",
+              "icon": "lineargrid1"
             }
           ]
         }
@@ -31,7 +33,8 @@
           "items": [
             {
               "label": "navigation.settings",
-              "route": "/portal/settings/"
+              "route": "/portal/settings/",
+              "icon": "lineargrid1"
             }
           ]
         }

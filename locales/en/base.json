@@ -5,5 +5,19 @@
   "navigation": {
     "main": "Main"
   },
+  "default": {
+    "list": {
+      "title": "List Entries",
+      "description": "List Entries",
+      "create": "Create"
+    },
+    "create": {
+      "title": "Create Entry",
+      "description": "Create Entry",
+      "cancel": "Cancel",
+      "save": "Save",
+      "success-toast": "Entry Created"
+    }
+  },
   "modulesList": {}
 }

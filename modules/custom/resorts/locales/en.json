@@ -7,6 +7,19 @@
     "description": "Manage resorts",
     "list": {
       "id": "Id"
+    },
+    "create": {
+      "description": "Create new entry"
+    },
+    "tabs": {
+      "general": "General"
+    },
+    "sections": {
+      "general": "General"
+    },
+    "fields": {
+      "name-label": "Name",
+      "name-placeholder": "Name"
     }
   },
   "modules": {

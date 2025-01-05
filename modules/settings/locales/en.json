@@ -3,7 +3,8 @@
     "settings": "Settings",
     "integrations": "Integrations",
     "appearance": "Appearance",
-    "modules": "Modules"
+    "modules": "Modules",
+    "sidebar": "Sidebar"
   },
   "modulesList": {
     "settings": "Settings"
@@ -11,6 +12,10 @@
   "appearance": {
     "title": "Appearance",
     "description": "Appearance settings let you customize the look and feel of your app, including themes, colors, and fonts."
+  },
+  "sidebar": {
+    "title": "Sidebar",
+    "description": "Setup sidebar navigation"
   },
   "integrations": {
     "title": "Integrations & Workflows",
