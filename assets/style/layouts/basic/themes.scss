@@ -26,3 +26,15 @@
   --buttonSecondaryColor: #4a5970;
   --buttonSecondaryText: #fff;
 }
+
+//To prevent issues during render theme preview, pass default variables as "light" (-default) scheme
+[theme="light"] {
+  --Fill-Background: linear-gradient(0deg, #fff 0%, #fff 80%, #f0f6ff 100%);
+  --Text-On-Fill-Background: var(--Text-On-Fill-Primary);
+}
+
+[theme="dark"] {
+  --Fill-Background: black;
+  --Text-On-Fill-Background: #fff;
+  --Fill-Secondary: #21232d;
+}
