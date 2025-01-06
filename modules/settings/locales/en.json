@@ -11,7 +11,12 @@
   },
   "appearance": {
     "title": "Appearance",
-    "description": "Appearance settings let you customize the look and feel of your app, including themes, colors, and fonts."
+    "description": "Appearance settings let you customize the look and feel of your app, including themes, colors, and fonts.",
+    "theme": {
+      "label": "Color scheme",
+      "light": "Light",
+      "dark": "Dark"
+    }
   },
   "sidebar": {
     "title": "Sidebar",

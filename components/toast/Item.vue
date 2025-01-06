@@ -7,10 +7,10 @@
     :style="message.styles"
   >
     <div class="toastItemIcon">
-      <Icon
-        v-if="false"
+      <component
+        :is="icon"
         class="toastItemIconContainer"
-        :icon="icon"
+        :icon="iconName"
         size="small"
         :theme="style"
       />
@@ -29,6 +29,9 @@
 </template>
 
 <script setup lang="ts">
+import vertex from "vertex-admin";
+const icon = resolveComponent(vertex.getComponent("Icon"));
+
 const props = defineProps({
   message: {
     type: Object,
@@ -39,7 +42,7 @@ const emit = defineEmits(["click", "close"]);
 const close = () => {
   emit("close");
 };
-const icon = computed(() => {
+const iconName = computed(() => {
   if (props.message.icon) {
     return props.message.icon;
   }
@@ -93,23 +96,24 @@ const dismissible = computed((): boolean => {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/style/mixins.scss";
+
 .toastItem {
   padding: 8px 10px;
   z-index: 0;
   display: grid;
   grid-template-columns: 22px 1fr;
   grid-gap: 12px;
-  color: var(--Middle-Gray, #384254);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+  color: #384254;
+  @include text("body");
   width: 300px;
 
   animation-name: toastIn;
   animation-duration: 0.5s;
   animation-fill-mode: both;
   animation-timing-function: cubic-bezier(0, 1.5, 0.5, 1);
+  align-items: center;
+
   &.wide {
     width: 600px;
   }
@@ -168,6 +172,104 @@ const dismissible = computed((): boolean => {
     background-color: #fff;
     border-radius: 16px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@keyframes toastIn {
+  0% {
+    transform: translate3d(0, -120px, 0) scaleY(0.8);
+    visibility: visible;
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+@keyframes ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  1.5% {
+    transform: rotate(30deg);
+  }
+
+  2.5% {
+    transform: rotate(-25deg);
+  }
+
+  3.75% {
+    transform: rotate(20deg);
+  }
+
+  5.15% {
+    transform: rotate(-10deg);
+  }
+
+  6.65% {
+    transform: rotate(5deg);
+  }
+
+  8.0% {
+    transform: rotate(-2deg);
+  }
+
+  10.0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes ding {
+  0% {
+    transform: translateX(0);
+  }
+
+  1.2% {
+    transform: translateX(4px);
+  }
+
+  1.5% {
+    transform: translateX(4px);
+  }
+
+  2.3% {
+    transform: translateX(-4px);
+  }
+
+  2.5% {
+    transform: translateX(-4px);
+  }
+
+  3.55% {
+    transform: translateX(4px);
+  }
+
+  3.75% {
+    transform: translateX(4px);
+  }
+
+  5.45% {
+    transform: translateX(-3px);
+  }
+
+  7.15% {
+    transform: translateX(2px);
+  }
+
+  9.0% {
+    transform: translateX(-1px);
+  }
+
+  11.0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: rotate(0deg);
   }
 }
 </style>

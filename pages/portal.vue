@@ -7,6 +7,7 @@
 <script setup lang="ts">
 import vertex from "vertex-admin";
 const defaultLayout = vertex.getLayout();
+const { $theme } = useNuxtApp();
 
 const setupLayout = () => {
   setPageLayout(`themes-${defaultLayout.toLowerCase()}-portal`);
@@ -18,8 +19,8 @@ definePageMeta({
 onBeforeMount(() => {
   setupLayout();
   vertex.mount();
+  $theme.load();
 });
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

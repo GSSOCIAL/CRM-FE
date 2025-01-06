@@ -5,32 +5,25 @@
         <component :is="heading">
           <template #default>
             {{
-              $te(`${route?.params?.module}.create.title`)
-                ? $t(`${route?.params?.module}.create.title`)
-                : $t(`default.create.title`)
+              $te(`${module}.view.title`)
+                ? $t(`${module}.view.title`, {
+                    id: id,
+                    title: title,
+                  })
+                : $t(`default.view.title`, { id: id, title: title })
             }}
           </template>
           <template #description>
             {{
-              $te(`${route?.params?.module}.create.description`)
-                ? $t(`${route?.params?.module}.create.description`)
-                : $t(`default.create.description`)
+              $te(`${module}.view.description`)
+                ? $t(`${module}.view.description`, {
+                    id: id,
+                    title: title,
+                  })
+                : $t(`default.view.description`, { id: id, title: title })
             }}
           </template>
-          <template #actions>
-            <NuxtLink :to="`/portal/${route?.params?.module}/`">
-              <component :is="button" type="secondary">{{
-                $te(`${route?.params?.module}.create.cancel`)
-                  ? $t(`${route?.params?.module}.create.cancel`)
-                  : $t(`default.create.cancel`)
-              }}</component>
-            </NuxtLink>
-            <component :is="button" type="primary" @click="update">{{
-              $te(`${route?.params?.module}.create.save`)
-                ? $t(`${route?.params?.module}.create.save`)
-                : $t(`default.create.save`)
-            }}</component>
-          </template>
+          <template #actions> </template>
         </component>
         <component :is="edit" :meta="form" @change="updatePayload"></component>
       </component>
@@ -61,6 +54,16 @@ const controller = computed((): ModuleConfig => {
   });
   const controllerBuilder = imports[Object.keys(imports)[0]];
   return new controllerBuilder();
+});
+
+const module = computed((): string => {
+  return (route.params?.module as string) ?? "";
+});
+const id = computed((): string => {
+  return (route.params?.id as string) ?? "";
+});
+const title = computed((): string => {
+  return "";
 });
 
 const form = computed(() => {

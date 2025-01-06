@@ -17,6 +17,10 @@
       "cancel": "Cancel",
       "save": "Save",
       "success-toast": "Entry Created"
+    },
+    "view": {
+      "title": "View Entry",
+      "description": "View Entry"
     }
   },
   "modulesList": {}

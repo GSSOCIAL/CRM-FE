@@ -170,6 +170,7 @@ body[sidebar="closed"] {
         align-items: center;
         justify-content: center;
         position: relative;
+        overflow: hidden;
         &:after {
           content: "";
           display: block;
@@ -197,11 +198,21 @@ body[sidebar="closed"] {
           border-radius: 2px;
           padding: 4px;
           color: #fff;
+          z-index: -2;
+          width: 0px;
+          height: 0px;
+          padding: 0px;
+          @include text("headline");
         }
         &:hover {
+          overflow: visible;
           span {
             opacity: 1;
             left: 100%;
+            z-index: 0;
+            width: initial;
+            height: initial;
+            padding: 4px;
           }
         }
       }
