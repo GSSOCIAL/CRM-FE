@@ -22,6 +22,10 @@ const items = [
         route: `/portal/settings/appearance`,
       },
       {
+        label: "navigation.regional",
+        route: `/portal/settings/regional`,
+      },
+      {
         label: "navigation.modules",
         route: `/portal/settings/modules`,
       },

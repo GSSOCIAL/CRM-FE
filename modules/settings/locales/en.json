@@ -3,6 +3,7 @@
     "settings": "Settings",
     "integrations": "Integrations",
     "appearance": "Appearance",
+    "regional": "Region and Language",
     "modules": "Modules",
     "sidebar": "Sidebar"
   },
@@ -16,6 +17,13 @@
       "label": "Color scheme",
       "light": "Light",
       "dark": "Dark"
+    }
+  },
+  "regional": {
+    "title": "Region and Language",
+    "description": "Control application reginal settings & language",
+    "fields": {
+      "language": "Language"
     }
   },
   "sidebar": {

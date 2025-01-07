@@ -34,7 +34,12 @@
 }
 
 [theme="dark"] {
-  --Fill-Background: black;
+  --Fill-Primary: #15161c;
+  --Fill-Background: #15161c;
+  --Text-On-Fill-Primary: #fff;
+  --Text-On-Fill-Secondary: #868d99;
   --Text-On-Fill-Background: #fff;
   --Fill-Secondary: #21232d;
+  --Fill-Tertiary: #22282f;
+  --Fill-Divider: #282a2d;
 }

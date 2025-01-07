@@ -23,5 +23,9 @@
       "description": "View Entry"
     }
   },
-  "modulesList": {}
+  "modulesList": {},
+  "languages": {
+    "en": "English",
+    "ua": "Українська"
+  }
 }

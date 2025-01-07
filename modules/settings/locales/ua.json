@@ -1,0 +1,17 @@
+{
+  "navigation": {
+    "settings": "Налаштування",
+    "integrations": "Інтеграції",
+    "appearance": "Відображення",
+    "regional": "Регіональні",
+    "modules": "Модулі",
+    "sidebar": "Навігація"
+  },
+  "regional": {
+    "title": "Регіон і мова",
+    "description": "Налаштування регіональних вподобань і мови",
+    "fields": {
+      "language": "Мова інтерфейсу"
+    }
+  }
+}

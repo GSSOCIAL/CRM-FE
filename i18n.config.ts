@@ -13,6 +13,20 @@ const imports = {
       import: "default",
     }),
   ],
+  ua: [
+    import.meta.glob(`@/locales/ua/*.json`, {
+      eager: true,
+      import: "default",
+    }),
+    import.meta.glob(`@/modules/*/locales/ua.json`, {
+      eager: true,
+      import: "default",
+    }),
+    import.meta.glob(`@/modules/custom/*/locales/ua.json`, {
+      eager: true,
+      import: "default",
+    }),
+  ],
 };
 
 /**
@@ -41,6 +55,7 @@ const getLocaleMessages = () => {
 
 export default defineI18nConfig(() => ({
   legacy: false,
-  locale: "en",
+  locale: localStorage.getItem("locale") ?? "en",
+  fallbackLocale: "en",
   messages: getLocaleMessages(),
 }));
