@@ -17,6 +17,9 @@
       "label": "Color scheme",
       "light": "Light",
       "dark": "Dark"
+    },
+    "layout": {
+      "label": "Layout"
     }
   },
   "regional": {

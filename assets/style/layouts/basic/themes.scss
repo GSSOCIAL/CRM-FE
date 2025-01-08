@@ -28,12 +28,12 @@
 }
 
 //To prevent issues during render theme preview, pass default variables as "light" (-default) scheme
-[theme="light"] {
+[scheme="light"] {
   --Fill-Background: linear-gradient(0deg, #fff 0%, #fff 80%, #f0f6ff 100%);
   --Text-On-Fill-Background: var(--Text-On-Fill-Primary);
 }
 
-[theme="dark"] {
+[scheme="dark"] {
   --Fill-Primary: #15161c;
   --Fill-Background: #15161c;
   --Text-On-Fill-Primary: #fff;

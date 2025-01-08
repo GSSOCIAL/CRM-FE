@@ -12,6 +12,31 @@
       <div class="appearanceSections">
         <div class="appearanceSection">
           <div class="appearanceSectionLabel">
+            {{ $t("appearance.layout.label") }}
+          </div>
+          <div class="appearanceSectionList">
+            <div
+              class="appearanceSectionListItem"
+              v-for="layout in layouts"
+              :key="layout.key"
+              :class="{
+                selected: selectedLayout?.toLowerCase() == layout.key,
+              }"
+              @click="selectLayout(layout.key)"
+            >
+              <div class="appearanceSectionListItemPreview">
+                <div class="appearanceSectionListItemPreviewBody">
+                  <component :is="layout.preview" />
+                </div>
+              </div>
+              <div class="appearanceSectionListItemLabel">
+                {{ layout.label }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="appearanceSection">
+          <div class="appearanceSectionLabel">
             {{ $t("appearance.theme.label") }}
           </div>
           <div class="appearanceSectionList">
@@ -23,9 +48,12 @@
                 [`scheme-${scheme.key}`]: true,
                 selected: scheme.key == selectedColorScheme,
               }"
-              @click="selectTheme(scheme.key)"
+              @click="selectScheme(scheme.key)"
             >
-              <div class="appearanceSectionListItemPreview" :theme="scheme.key">
+              <div
+                class="appearanceSectionListItemPreview"
+                :scheme="scheme.key"
+              >
                 <div class="appearanceSectionListItemPreviewBody">
                   <div class="appearanceSectionListItemPreviewSidebar">
                     <div
@@ -85,27 +113,68 @@
 
 <script setup lang="ts">
 import vertex from "vertex-admin";
+
 const wrapper = resolveComponent(vertex.getComponent("LayoutWrapper"));
 const page = resolveComponent(vertex.getComponent("LayoutPage"));
 const heading = resolveComponent(vertex.getComponent("LayoutHeading"));
 
-const { $theme } = useNuxtApp();
+const app = useNuxtApp();
+const i18n = useI18n();
+
+const selectedColorScheme = ref(app.$theme.get());
+const selectedLayout = ref(vertex.getLayout());
+
+const layouts = computed(() => {
+  const imports = [
+    import.meta.glob(`@/layouts/themes/*/meta.json`, {
+      eager: true,
+      import: "default",
+    }),
+  ];
+  let output: Array<Object> = [];
+  imports.forEach((meta) => {
+    const paths = Object.keys(meta);
+    paths.forEach((path) => {
+      output.push({
+        key: meta[path].name,
+        label: meta[path].label,
+        preview: resolveComponent(`Layouts${meta[path].path}Preview`),
+        schemes: meta[path].schemes,
+      });
+    });
+  });
+  return output.sort((a, b) => (a.label < b.label ? -1 : 1));
+});
+
+const layoutMeta = computed(() => {
+  const index = layouts.value.findIndex(
+    ({ key }) => key == selectedLayout.value
+  );
+  if (index >= 0) {
+    return layouts.value[index];
+  }
+  return layouts.value[0];
+});
+
+const selectLayout = (name: string) => {
+  app.hooks.callHook("layout:change", name);
+  selectedLayout.value = name;
+
+  selectScheme(layoutMeta.value.schemes[0]);
+};
 
 const colorSchemes = computed(() => {
-  return [
-    {
-      key: "light",
-      label: "appearance.theme.light",
-    },
-    {
-      key: "dark",
-      label: "appearance.theme.dark",
-    },
-  ];
+  return (layoutMeta.value?.schemes ?? []).map((scheme) => {
+    return {
+      key: scheme,
+      label: i18n.te(`appearance.theme.${scheme}`)
+        ? `appearance.theme.${scheme}`
+        : scheme,
+    };
+  });
 });
-const selectedColorScheme = ref($theme.get());
-const selectTheme = (scheme: string) => {
-  $theme.set(scheme);
+const selectScheme = (scheme: string) => {
+  app.hooks.callHook("colorScheme:change", scheme);
   selectedColorScheme.value = scheme;
 };
 </script>
@@ -147,7 +216,7 @@ const selectTheme = (scheme: string) => {
         background-color: var(--Fill-Secondary);
         color: var(--Text-On-Fill-Secondary);
         border-radius: 4px;
-        border: 1px solid var(--Fill-Divider);
+        border: 2px solid var(--Fill-Divider);
         cursor: pointer;
         &Preview {
           width: 100%;

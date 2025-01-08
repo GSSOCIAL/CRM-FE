@@ -1,0 +1,6 @@
+{
+  "name": "basic",
+  "path": "Basic",
+  "label": "Basic",
+  "schemes": ["light", "dark"]
+}

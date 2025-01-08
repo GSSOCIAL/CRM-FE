@@ -4,7 +4,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       theme: {
         get() {
           var storedTheme =
-            localStorage.getItem("theme") ||
+            localStorage.getItem("scheme") ||
             (window.matchMedia("(prefers-color-scheme: dark)").matches
               ? "dark"
               : "light");
@@ -12,14 +12,14 @@ export default defineNuxtPlugin((nuxtApp) => {
         },
         load() {
           if (this.get()) {
-            document.documentElement.setAttribute("theme", this.get());
-            document.body.setAttribute("theme", this.get());
+            document.documentElement.setAttribute("scheme", this.get());
+            document.body.setAttribute("scheme", this.get());
           }
         },
         set(theme: string) {
-          document.documentElement.setAttribute("theme", theme);
-          document.body.setAttribute("theme", theme);
-          localStorage.setItem("theme", theme);
+          document.documentElement.setAttribute("scheme", theme);
+          document.body.setAttribute("scheme", theme);
+          localStorage.setItem("scheme", theme);
         },
       },
     },

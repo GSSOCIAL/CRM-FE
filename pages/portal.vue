@@ -1,16 +1,17 @@
 <template>
-  <NuxtLayout name="themes-basic-portal">
+  <NuxtLayout :name="`themes-${layout}-portal`">
     <NuxtPage page-key="subpage" />
   </NuxtLayout>
 </template>
 
 <script setup lang="ts">
 import vertex from "vertex-admin";
-const defaultLayout = vertex.getLayout();
-const { $theme } = useNuxtApp();
+
+const layout = ref(vertex.getLayout());
+const app = useNuxtApp();
 
 const setupLayout = () => {
-  setPageLayout(`themes-${defaultLayout.toLowerCase()}-portal`);
+  setPageLayout(`themes-${layout.value}-portal`);
 };
 
 definePageMeta({
@@ -19,7 +20,16 @@ definePageMeta({
 onBeforeMount(() => {
   setupLayout();
   vertex.mount();
-  $theme.load();
+  app.$theme.load();
+});
+
+app.hook("layout:change", (name) => {
+  layout.value = name;
+  localStorage.setItem("layout", name);
+  document.body.setAttribute("layout", name);
+});
+app.hook("colorScheme:change", (name) => {
+  app.$theme.set(name);
 });
 </script>
 
