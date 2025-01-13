@@ -37,8 +37,6 @@
 </template>
 
 <script setup lang="ts">
-import ModuleConfig, { ModuleController } from "@/config/index";
-
 const context = resolveComponent("LayoutContext");
 const wrapper = resolveComponent("LayoutWrapper");
 const page = resolveComponent("LayoutPage");
@@ -60,14 +58,19 @@ const title = computed((): string => {
   return "";
 });
 
-const controller = computed((): ModuleController => {
+const controller = computed((): any => {
+  return app.$vertex.modules[module.value] ?? null;
+});
+
+/*
+const controller1 = computed((): ModuleController => {
   //Retrieve module controllers
   const imports = [
-    import.meta.glob("@/modules/*/meta.ts", {
+    import.meta.glob("@/modules/*\/meta.ts", {
       eager: true,
       import: "default",
     }),
-    import.meta.glob("@/modules/custom/*/meta.ts", {
+    import.meta.glob("@/modules/custom/*\/meta.ts", {
       eager: true,
       import: "default",
     }),
@@ -84,6 +87,7 @@ const controller = computed((): ModuleController => {
 
   return controllers[module.value] ?? null;
 });
+*/
 
 const form = computed(() => {
   if (controller.value) {

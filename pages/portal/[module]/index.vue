@@ -38,8 +38,6 @@
 </template>
 
 <script setup lang="ts">
-import ModuleConfig, { ModuleController } from "@/config/index";
-
 const context = resolveComponent("LayoutContext");
 const wrapper = resolveComponent("LayoutWrapper");
 const page = resolveComponent("LayoutPage");
@@ -56,29 +54,8 @@ const module = computed((): string => {
   return (route.params?.module as string) ?? "";
 });
 
-const controller = computed((): ModuleController => {
-  //Retrieve module controllers
-  const imports = [
-    import.meta.glob("@/modules/*/meta.ts", {
-      eager: true,
-      import: "default",
-    }),
-    import.meta.glob("@/modules/custom/*/meta.ts", {
-      eager: true,
-      import: "default",
-    }),
-  ];
-  //Controllers
-  let controllers: { [module: string]: ModuleController } = {};
-  imports.forEach((paths) => {
-    Object.keys(paths).forEach((path) => {
-      const builder = paths[path] as any;
-      const controller: ModuleController = new builder();
-      controllers[controller.name] = controller;
-    });
-  });
-
-  return controllers[module.value] ?? null;
+const controller = computed((): any => {
+  return app.$vertex.modules[module.value] ?? null;
 });
 
 const columns = computed(() => {

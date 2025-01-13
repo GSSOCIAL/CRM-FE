@@ -1,6 +1,7 @@
-import { ModuleController } from "@/config/index";
+//import { ModuleController } from "@/config/index";
 
-export default class ResortsController extends ModuleController {
+export default class ResortsController {
+  /*
   override route = "resorts";
   override name = "resorts";
   override label = "resorts.moduleName";
@@ -110,4 +111,5 @@ export default class ResortsController extends ModuleController {
       },
     ];
   }
+    */
 }

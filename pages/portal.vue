@@ -5,23 +5,19 @@
 </template>
 
 <script setup lang="ts">
+import { LayoutKey } from "#build/types/layouts";
+
 const app = useNuxtApp();
-const layout = ref(app.$vertex.layout);
+const layout = ref("basic" ?? app.$vertex.layout);
 
 definePageMeta({
-  layout: "basic",
+  layout: layout.value as LayoutKey,
 });
 onBeforeMount(() => {
-  app.$theme.load();
+  //app.$vertex.setup()
 });
-
 app.hook("layout:change", (name) => {
   layout.value = name;
-  localStorage.setItem("layout", name);
-  document.body.setAttribute("layout", name);
-});
-app.hook("colorScheme:change", (name) => {
-  app.$theme.set(name);
 });
 </script>
 
