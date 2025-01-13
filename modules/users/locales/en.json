@@ -1,0 +1,11 @@
+{
+  "users": {
+    "view": {
+      "title": "View User",
+      "description": ""
+    },
+    "sections": {
+      "personal": "User Personal"
+    }
+  }
+}

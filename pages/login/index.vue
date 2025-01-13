@@ -1,30 +1,3 @@
-<script setup lang="ts">
-definePageMeta({
-  layout: "auth",
-});
-const { $api, $store } = useNuxtApp();
-
-const form = useState("form", () => {
-  return {
-    email: "",
-    password: "",
-  };
-});
-
-const login = () => {
-  $api.identity
-    .login({ email: form.value.email, password: form.value.password })
-    .then((response) => {
-      if (response && response.token) {
-        //Store token
-        $store.identity.setToken(response.token);
-        //Navigate to portal
-        navigateTo("/portal");
-      }
-    });
-};
-</script>
-
 <template>
   <PageWrapper>
     <div class="loginPageContainer">
@@ -60,8 +33,35 @@ const login = () => {
   </PageWrapper>
 </template>
 
+<script setup lang="ts">
+definePageMeta({
+  layout: "auth",
+});
+const { $api, $store } = useNuxtApp();
+
+const form = ref({
+  email: "",
+  password: "",
+});
+
+const login = () => {
+  $api.identity
+    .login({ email: form.value.email, password: form.value.password })
+    .then((response) => {
+      if (response && response.token) {
+        $store.identity.setToken(response.token);
+        $store.identity.setUser({
+          id: response.user.id,
+          email: response.user.email,
+        });
+        //Navigate to portal
+        navigateTo("/portal");
+      }
+    });
+};
+</script>
+
 <style scoped lang="scss">
-@import "assets/style/mixins.scss";
 @import "assets/style/animations.scss";
 
 .loginPageContainer {

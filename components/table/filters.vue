@@ -47,7 +47,6 @@ const isManageFiltersShowed = useState("isManageFiltersShowed", () => false);
 </script>
 
 <style lang="scss">
-@import "assets/style/mixins.scss";
 @import "assets/style/animations.scss";
 
 .tableFiltersContainer {

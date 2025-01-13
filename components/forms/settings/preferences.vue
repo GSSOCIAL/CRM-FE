@@ -114,7 +114,6 @@ const layoutDOM = (h) => {
 </template>
 
 <style lang="scss">
-@import "assets/style/mixins.scss";
 .appearanceImageLight,
 .appearanceImageDark {
   padding: 24px 24px 0px 24px;

@@ -2,10 +2,7 @@
   <div class="widgetsContainer"></div>
 </template>
 
-<script setup lang="ts">
-import vertex from "vertex-admin";
-const button = resolveComponent(vertex.getComponent("Button"));
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss">
 .widgetsContainer {

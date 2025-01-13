@@ -1,9 +1,6 @@
 <template>
   <div class="applicationLayoutBasic">
-    <component :is="sidebar" />
     <div class="applicationLayoutBasicContext">
-      <component :is="header" />
-      Wide layout
       <div class="applicationLayoutBasicContent">
         <NuxtPage />
       </div>
@@ -12,14 +9,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
-const sidebar = resolveComponent(
-  vertex.getCustomLayoutComponent("LayoutsBasicSidebar")
-);
-const header = resolveComponent(
-  vertex.getCustomLayoutComponent("LayoutsBasicHeader")
-);
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss">
 @import "@/assets/style/layouts/basic/main.scss";

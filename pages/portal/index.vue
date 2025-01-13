@@ -19,6 +19,7 @@
     <Widgets :editMode="editMode" />
   </PageWrapper>
 </template>
+
 <script setup lang="ts">
 const editMode = useState("editMode", () => false);
 </script>

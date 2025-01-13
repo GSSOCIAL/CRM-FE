@@ -29,11 +29,10 @@
 </template>
 
 <script setup lang="ts">
-import vertex from "vertex-admin";
-const wrapper = resolveComponent(vertex.getComponent("LayoutWrapper"));
-const page = resolveComponent(vertex.getComponent("LayoutPage"));
-const heading = resolveComponent(vertex.getComponent("LayoutHeading"));
-const field = resolveComponent(vertex.getComponent("Field"));
+const wrapper = resolveComponent("LayoutWrapper");
+const page = resolveComponent("LayoutPage");
+const heading = resolveComponent("LayoutHeading");
+const field = resolveComponent("Field");
 
 const i18n = useI18n();
 const lang = ref(i18n.locale);
@@ -54,7 +53,6 @@ watch(lang, () => {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/style/mixins.scss";
 .reginoal {
   &Sections {
     width: 100%;

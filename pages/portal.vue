@@ -1,25 +1,17 @@
 <template>
-  <NuxtLayout :name="`themes-${layout}-portal`">
+  <NuxtLayout>
     <NuxtPage page-key="subpage" />
   </NuxtLayout>
 </template>
 
 <script setup lang="ts">
-import vertex from "vertex-admin";
-
-const layout = ref(vertex.getLayout());
 const app = useNuxtApp();
-
-const setupLayout = () => {
-  setPageLayout(`themes-${layout.value}-portal`);
-};
+const layout = ref(app.$vertex.layout);
 
 definePageMeta({
-  layout: false,
+  layout: "basic",
 });
 onBeforeMount(() => {
-  setupLayout();
-  vertex.mount();
   app.$theme.load();
 });
 

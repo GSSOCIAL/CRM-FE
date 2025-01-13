@@ -5,26 +5,12 @@
   "resorts": {
     "title": "Resorts",
     "description": "Manage resorts",
-    "list": {
-      "id": "Id"
-    },
     "create": {
-      "description": "Create new entry"
-    },
-    "tabs": {
-      "general": "General"
-    },
-    "sections": {
-      "general": "General"
+      "description": "Create new resort entry"
     },
     "fields": {
       "name-label": "Name",
       "name-placeholder": "Name"
-    }
-  },
-  "modules": {
-    "resorts": {
-      "module": "Resorts"
     }
   }
 }

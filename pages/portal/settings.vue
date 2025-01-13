@@ -10,9 +10,9 @@
 </template>
 
 <script setup lang="ts">
-import vertex from "vertex-admin";
-const layout = resolveComponent(vertex.getComponent("LayoutActions"));
-const navigation = resolveComponent(vertex.getComponent("Navigation"));
+const layout = resolveComponent("LayoutActions");
+const navigation = resolveComponent("Navigation");
+
 const items = [
   {
     label: "navigation.main",
@@ -24,14 +24,6 @@ const items = [
       {
         label: "navigation.regional",
         route: `/portal/settings/regional`,
-      },
-      {
-        label: "navigation.modules",
-        route: `/portal/settings/modules`,
-      },
-      {
-        label: "navigation.sidebar",
-        route: `/portal/settings/sidebar`,
       },
     ],
   },

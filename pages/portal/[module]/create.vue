@@ -5,29 +5,29 @@
         <component :is="heading">
           <template #default>
             {{
-              $te(`${route?.params?.module}.create.title`)
-                ? $t(`${route?.params?.module}.create.title`)
+              $te(`${module}.create.title`)
+                ? $t(`${module}.create.title`)
                 : $t(`default.create.title`)
             }}
           </template>
           <template #description>
             {{
-              $te(`${route?.params?.module}.create.description`)
-                ? $t(`${route?.params?.module}.create.description`)
+              $te(`${module}.create.description`)
+                ? $t(`${module}.create.description`)
                 : $t(`default.create.description`)
             }}
           </template>
           <template #actions>
-            <NuxtLink :to="`/portal/${route?.params?.module}/`">
+            <NuxtLink :to="`/portal/${module}/`">
               <component :is="button" type="secondary">{{
-                $te(`${route?.params?.module}.create.cancel`)
-                  ? $t(`${route?.params?.module}.create.cancel`)
+                $te(`${module}.create.cancel`)
+                  ? $t(`${module}.create.cancel`)
                   : $t(`default.create.cancel`)
               }}</component>
             </NuxtLink>
             <component :is="button" type="primary" @click="update">{{
-              $te(`${route?.params?.module}.create.save`)
-                ? $t(`${route?.params?.module}.create.save`)
+              $te(`${module}.create.save`)
+                ? $t(`${module}.create.save`)
                 : $t(`default.create.save`)
             }}</component>
           </template>
@@ -39,51 +39,72 @@
 </template>
 
 <script setup lang="ts">
-import vertex from "vertex-admin";
-import ModuleConfig from "@/config/index";
+import ModuleConfig, { ModuleController } from "@/config/index";
 
-const context = resolveComponent(vertex.getComponent("LayoutContext"));
-const wrapper = resolveComponent(vertex.getComponent("LayoutWrapper"));
-const page = resolveComponent(vertex.getComponent("LayoutPage"));
-const heading = resolveComponent(vertex.getComponent("LayoutHeading"));
-const edit = resolveComponent(vertex.getComponent("ViewEdit"));
-const button = resolveComponent(vertex.getComponent("Button"));
+const context = resolveComponent("LayoutContext");
+const wrapper = resolveComponent("LayoutWrapper");
+const page = resolveComponent("LayoutPage");
+const heading = resolveComponent("LayoutHeading");
+const edit = resolveComponent("ViewEdit");
+const button = resolveComponent("Button");
 
 const route = useRoute();
 const app = useNuxtApp();
 const t = useI18n();
 
-const controller = computed((): ModuleConfig => {
-  //Get module
-  const imports = import.meta.glob("@/modules/custom/resorts/resorts.ts", {
-    eager: true,
-    import: "default",
+const module = computed((): string => {
+  return (route.params?.module as string) ?? "";
+});
+
+const controller = computed((): ModuleController => {
+  //Retrieve module controllers
+  const imports = [
+    import.meta.glob("@/modules/*/meta.ts", {
+      eager: true,
+      import: "default",
+    }),
+    import.meta.glob("@/modules/custom/*/meta.ts", {
+      eager: true,
+      import: "default",
+    }),
+  ];
+  //Controllers
+  let controllers: { [module: string]: ModuleController } = {};
+  imports.forEach((paths) => {
+    Object.keys(paths).forEach((path) => {
+      const builder = paths[path] as any;
+      const controller: ModuleController = new builder();
+      controllers[controller.name] = controller;
+    });
   });
-  const controllerBuilder = imports[Object.keys(imports)[0]];
-  return new controllerBuilder();
+
+  return controllers[module.value] ?? null;
 });
 
 const form = computed(() => {
-  if (controller) {
+  if (controller.value) {
     return controller.value.createForm;
   }
 });
 
 const payload = ref({});
-const updatePayload = (data) => {
+const updatePayload = (data: any) => {
   payload.value = { ...payload.value, ...data.value };
 };
+
 const update = () => {
-  if (controller) {
+  if (controller.value) {
     //Create controller function should act as Promise to lock page state, in response boolean or id expected
-    controller.value.create({ ...payload.value }).then((response) => {
+    controller.value.createEntry({ ...payload.value }).then((response: any) => {
       app.hooks.callHook("toast:message", {
-        message: t.te(`${route.params?.module}.create.success-toast`)
-          ? t.t(`${route.params?.module}.create.success-toast`)
+        message: t.te(`${module.value}.create.success-toast`)
+          ? t.t(`${module.value}.create.success-toast`)
           : t.t("default.create.success-toast"),
         type: "note",
         dismissible: false,
       });
+
+      navigateTo(`/portal/${module.value}/${response?.id}`);
     });
   }
 };

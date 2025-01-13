@@ -25,36 +25,30 @@
           </template>
           <template #actions> </template>
         </component>
-        <component :is="edit" :meta="form" @change="updatePayload"></component>
+        <component
+          :is="details"
+          :meta="form"
+          :data="data"
+          @change="updatePayload"
+        ></component>
       </component>
     </component>
   </component>
 </template>
 
 <script setup lang="ts">
-import vertex from "vertex-admin";
-import ModuleConfig from "@/config/index";
+import ModuleConfig, { ModuleController } from "@/config/index";
 
-const context = resolveComponent(vertex.getComponent("LayoutContext"));
-const wrapper = resolveComponent(vertex.getComponent("LayoutWrapper"));
-const page = resolveComponent(vertex.getComponent("LayoutPage"));
-const heading = resolveComponent(vertex.getComponent("LayoutHeading"));
-const edit = resolveComponent(vertex.getComponent("ViewEdit"));
-const button = resolveComponent(vertex.getComponent("Button"));
+const context = resolveComponent("LayoutContext");
+const wrapper = resolveComponent("LayoutWrapper");
+const page = resolveComponent("LayoutPage");
+const heading = resolveComponent("LayoutHeading");
+const details = resolveComponent("ViewDetails");
+const button = resolveComponent("Button");
 
 const route = useRoute();
 const app = useNuxtApp();
-const t = useI18n();
-
-const controller = computed((): ModuleConfig => {
-  //Get module
-  const imports = import.meta.glob("@/modules/custom/resorts/resorts.ts", {
-    eager: true,
-    import: "default",
-  });
-  const controllerBuilder = imports[Object.keys(imports)[0]];
-  return new controllerBuilder();
-});
+const i18n = useI18n();
 
 const module = computed((): string => {
   return (route.params?.module as string) ?? "";
@@ -66,28 +60,55 @@ const title = computed((): string => {
   return "";
 });
 
+const controller = computed((): ModuleController => {
+  //Retrieve module controllers
+  const imports = [
+    import.meta.glob("@/modules/*/meta.ts", {
+      eager: true,
+      import: "default",
+    }),
+    import.meta.glob("@/modules/custom/*/meta.ts", {
+      eager: true,
+      import: "default",
+    }),
+  ];
+  //Controllers
+  let controllers: { [module: string]: ModuleController } = {};
+  imports.forEach((paths) => {
+    Object.keys(paths).forEach((path) => {
+      const builder = paths[path] as any;
+      const controller: ModuleController = new builder();
+      controllers[controller.name] = controller;
+    });
+  });
+
+  return controllers[module.value] ?? null;
+});
+
 const form = computed(() => {
-  if (controller) {
-    return controller.value.createForm;
+  if (controller.value) {
+    return controller.value.viewForm.map((tab) => {
+      return {
+        ...tab,
+      };
+    });
   }
 });
 
-const payload = ref({});
-const updatePayload = (data) => {
-  payload.value = { ...payload.value, ...data.value };
-};
-const update = () => {
-  if (controller) {
-    //Create controller function should act as Promise to lock page state, in response boolean or id expected
-    controller.value.create({ ...payload.value }).then((response) => {
-      app.hooks.callHook("toast:message", {
-        message: t.te(`${route.params?.module}.create.success-toast`)
-          ? t.t(`${route.params?.module}.create.success-toast`)
-          : t.t("default.create.success-toast"),
-        type: "note",
-        dismissible: false,
+const data = ref({});
+
+watch(
+  controller,
+  () => {
+    controller.value?.getEntry
+      .bind(this)
+      .call(this, id.value)
+      .then((response: any) => {
+        data.value = response;
       });
-    });
+  },
+  {
+    immediate: true,
   }
-};
+);
 </script>

@@ -8,7 +8,6 @@
 </template>
 
 <style scoped lang="scss">
-@import "assets/style/mixins.scss";
 @import "assets/style/animations.scss";
 .authLayoutContainer {
   display: flex;

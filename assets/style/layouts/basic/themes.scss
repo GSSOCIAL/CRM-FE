@@ -30,7 +30,16 @@
 //To prevent issues during render theme preview, pass default variables as "light" (-default) scheme
 [scheme="light"] {
   --Fill-Background: linear-gradient(0deg, #fff 0%, #fff 80%, #f0f6ff 100%);
+  --Fill-Divider: #dbe0eb;
+  --Fill-Primary: #fff;
+  --Text-On-Fill-Primary: #000113;
   --Text-On-Fill-Background: var(--Text-On-Fill-Primary);
+  --Fill-Sidebar: var(--Fill-Primary);
+  --Text-On-Fill-Sidebar: var(--Text-On-Fill-Primary);
+  --Fill-Header: var(--Fill-Primary);
+  --Text-On-Fill-Header: var(--Text-On-Fill-Primary);
+  --Text-On-Fill-Secondary: #4a5970;
+  --Fill-Icon: var(--Text-On-Fill-Secondary);
 }
 
 [scheme="dark"] {
@@ -42,4 +51,10 @@
   --Fill-Secondary: #21232d;
   --Fill-Tertiary: #22282f;
   --Fill-Divider: #282a2d;
+
+  --Fill-Sidebar: var(--Fill-Primary);
+  --Text-On-Fill-Sidebar: var(--Text-On-Fill-Primary);
+  --Fill-Header: var(--Fill-Primary);
+  --Text-On-Fill-Header: var(--Text-On-Fill-Primary);
+  --Fill-Icon: var(--Text-On-Fill-Secondary);
 }

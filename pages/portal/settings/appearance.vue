@@ -112,17 +112,15 @@
 </template>
 
 <script setup lang="ts">
-import vertex from "vertex-admin";
-
-const wrapper = resolveComponent(vertex.getComponent("LayoutWrapper"));
-const page = resolveComponent(vertex.getComponent("LayoutPage"));
-const heading = resolveComponent(vertex.getComponent("LayoutHeading"));
+const wrapper = resolveComponent("LayoutWrapper");
+const page = resolveComponent("LayoutPage");
+const heading = resolveComponent("LayoutHeading");
 
 const app = useNuxtApp();
 const i18n = useI18n();
 
 const selectedColorScheme = ref(app.$theme.get());
-const selectedLayout = ref(vertex.getLayout());
+const selectedLayout = ref("basic");
 
 const layouts = computed(() => {
   const imports = [
@@ -180,7 +178,6 @@ const selectScheme = (scheme: string) => {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/style/mixins.scss";
 .appearance {
   &Sections {
     width: 100%;

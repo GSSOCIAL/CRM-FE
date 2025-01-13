@@ -6,24 +6,24 @@
           <template #default>
             {{
               /**Use as fallback translation, $te checks if translation exists */
-              $te(`${route?.params?.module}.title`)
-                ? $t(`${route?.params?.module}.title`)
+              $te(`${module}.title`)
+                ? $t(`${module}.title`)
                 : $t(`default.list.title`)
             }}
           </template>
           <template #description>
             {{
-              $te(`${route?.params?.module}.description`)
-                ? $t(`${route?.params?.module}.description`)
+              $te(`${module}.description`)
+                ? $t(`${module}.description`)
                 : $t(`default.list.description`)
             }}
           </template>
           <template #actions>
-            <NuxtLink :to="`/portal/${route?.params?.module}/create`">
+            <NuxtLink :to="`/portal/${module}/create`">
               <component :is="button" type="primary">
                 {{
-                  $te(`${route?.params?.module}.list.create`)
-                    ? $t(`${route?.params?.module}.list.create`)
+                  $te(`${module}.list.create`)
+                    ? $t(`${module}.list.create`)
                     : $t(`default.list.create`)
                 }}
               </component>
@@ -31,40 +31,88 @@
           </template>
         </component>
         <component :is="widgets" />
-        <component :is="list" :columns="columns" :data="rows" />
+        <component :is="list" :columns="columns" :data="data" />
       </component>
     </component>
   </component>
 </template>
 
 <script setup lang="ts">
-import vertex from "vertex-admin";
-import ModuleConfig from "@/config/index";
+import ModuleConfig, { ModuleController } from "@/config/index";
 
-const context = resolveComponent(vertex.getComponent("LayoutContext"));
-const wrapper = resolveComponent(vertex.getComponent("LayoutWrapper"));
-const page = resolveComponent(vertex.getComponent("LayoutPage"));
-const heading = resolveComponent(vertex.getComponent("LayoutHeading"));
-const widgets = resolveComponent(vertex.getComponent("Widgets"));
-const list = resolveComponent(vertex.getComponent("ViewList"));
-const button = resolveComponent(vertex.getComponent("Button"));
+const context = resolveComponent("LayoutContext");
+const wrapper = resolveComponent("LayoutWrapper");
+const page = resolveComponent("LayoutPage");
+const heading = resolveComponent("LayoutHeading");
+const widgets = resolveComponent("Widgets");
+const list = resolveComponent("ViewList");
+const button = resolveComponent("Button");
 
 const route = useRoute();
+const app = useNuxtApp();
+const i18n = useI18n();
 
-const controller = computed((): ModuleConfig => {
-  //Get module
-  const imports = import.meta.glob("@/modules/custom/resorts/resorts.ts", {
-    eager: true,
-    import: "default",
+const module = computed((): string => {
+  return (route.params?.module as string) ?? "";
+});
+
+const controller = computed((): ModuleController => {
+  //Retrieve module controllers
+  const imports = [
+    import.meta.glob("@/modules/*/meta.ts", {
+      eager: true,
+      import: "default",
+    }),
+    import.meta.glob("@/modules/custom/*/meta.ts", {
+      eager: true,
+      import: "default",
+    }),
+  ];
+  //Controllers
+  let controllers: { [module: string]: ModuleController } = {};
+  imports.forEach((paths) => {
+    Object.keys(paths).forEach((path) => {
+      const builder = paths[path] as any;
+      const controller: ModuleController = new builder();
+      controllers[controller.name] = controller;
+    });
   });
-  const controllerBuilder = imports[Object.keys(imports)[0]];
-  return new controllerBuilder();
+
+  return controllers[module.value] ?? null;
 });
 
 const columns = computed(() => {
-  if (controller) {
-    return controller.value.columns;
+  if (controller.value) {
+    return controller.value.listColumns.map((column) => {
+      column = {
+        ...column,
+        label: i18n.te(column.label)
+          ? column.label
+          : `default.fields.${column.prop}`,
+      };
+      //Check if column marked as primary and add link
+      if (column.primary === true) {
+        column.to = column.to || `/portal/${module.value}/{${column.prop}}`;
+      }
+      return column;
+    });
   }
 });
-const rows = computed(() => {});
+
+const data = ref([]);
+
+watch(
+  controller,
+  () => {
+    controller.value?.getEntries
+      .bind(this)
+      .call(this)
+      .then((response: any) => {
+        data.value = response;
+      });
+  },
+  {
+    immediate: true,
+  }
+);
 </script>

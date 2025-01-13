@@ -10,7 +10,6 @@
 <script setup lang="ts"></script>
 
 <style scoped lang="scss">
-@import "assets/style/mixins.scss";
 .widgetContainer {
   width: 100%;
   > .widgetHeader {

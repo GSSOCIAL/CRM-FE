@@ -17,12 +17,9 @@
 </template>
 
 <script setup lang="ts">
-import vertex from "vertex-admin";
-const wrapper = resolveComponent(vertex.getComponent("LayoutWrapper"));
-const page = resolveComponent(vertex.getComponent("LayoutPage"));
-const heading = resolveComponent(vertex.getComponent("LayoutHeading"));
-const grid = resolveComponent(vertex.getComponent("LayoutGrid"));
-const integration = resolveComponent(
-  vertex.getComponent("ModulesIntegrationCard")
-);
+const wrapper = resolveComponent("LayoutWrapper");
+const page = resolveComponent("LayoutPage");
+const heading = resolveComponent("LayoutHeading");
+const grid = resolveComponent("LayoutGrid");
+const integration = resolveComponent("ModulesIntegrationCard");
 </script>

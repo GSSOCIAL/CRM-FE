@@ -7,7 +7,6 @@
 <script setup lang="ts"></script>
 
 <style lang="scss">
-@import "@/assets/style/mixins.scss";
 .card {
   width: 100%;
   padding: var(--padding);

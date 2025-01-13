@@ -1,11 +1,14 @@
 {
-  "fields": {
-    "search": "Search"
-  },
   "navigation": {
     "main": "Main"
   },
   "default": {
+    "module": {
+      "label": "Module"
+    },
+    "messages": {
+      "sessionExpired": "Session Expired"
+    },
     "list": {
       "title": "List Entries",
       "description": "List Entries",
@@ -21,6 +24,32 @@
     "view": {
       "title": "View Entry",
       "description": "View Entry"
+    },
+    "fields": {
+      "id": "ID",
+      "email": "Email",
+      "name": "Name",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "password": "Password",
+      "search": "Search",
+      "country": "Country",
+      "city": "City",
+      "address": "Address"
+    },
+    "tabs": {
+      "general": "General"
+    },
+    "sections": {
+      "general": "General"
+    }
+  },
+  "countries": {
+    "ua": "Ukraine"
+  },
+  "sidebar": {
+    "actions": {
+      "collapse": "Collapse"
     }
   },
   "modulesList": {},

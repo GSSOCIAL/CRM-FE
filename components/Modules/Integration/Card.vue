@@ -8,13 +8,11 @@
 </template>
 
 <script setup lang="ts">
-import vertex from "vertex-admin";
-const card = resolveComponent(vertex.getComponent("Card"));
-const head = resolveComponent(vertex.getComponent("CardHead"));
+const card = resolveComponent("Card");
+const head = resolveComponent("CardHead");
 </script>
 
 <style lang="scss">
-@import "@/assets/style/mixins.scss";
 .globalSearchWrapper {
   width: 100%;
 }

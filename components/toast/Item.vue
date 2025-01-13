@@ -29,8 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import vertex from "vertex-admin";
-const icon = resolveComponent(vertex.getComponent("Icon"));
+const icon = resolveComponent("Icon");
 
 const props = defineProps({
   message: {
@@ -96,8 +95,6 @@ const dismissible = computed((): boolean => {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/style/mixins.scss";
-
 .toastItem {
   padding: 8px 10px;
   z-index: 0;

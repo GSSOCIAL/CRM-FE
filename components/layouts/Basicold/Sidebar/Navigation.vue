@@ -30,7 +30,7 @@ const renderNavigation = (item: VertexNavigation) => {
                   class: "applicationLayoutBasicSidebarNavigationItemLabel",
                   to: item.route ?? "",
                 },
-                [
+                () => [
                   item.icon
                     ? h(resolveComponent("icon"), {
                         icon: item.icon,
@@ -60,6 +60,7 @@ const renderNavigation = (item: VertexNavigation) => {
     ]
   );
 };
+
 const navigationLayout = () => {
   return h(
     "div",

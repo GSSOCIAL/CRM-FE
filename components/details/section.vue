@@ -20,7 +20,6 @@ const props = defineProps({
 </template>
 
 <style scoped lang="scss">
-@import "assets/style/mixins.scss";
 .detailsSectionContainer {
   width: 100%;
   display: grid;
