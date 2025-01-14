@@ -1,6 +1,29 @@
-//import { ModuleController } from "@/config/index";
+const controller = useModuleController();
 
-export default class ResortsController {
+export default class ResortsController extends controller {
+  override route = "resorts";
+  override name = "resorts";
+  override label = "resorts.moduleName";
+  override icon = "linearGrid1";
+
+  override getEntries(): Promise<unknown> {
+    const { $vertex } = useNuxtApp();
+    return $vertex.api.resorts.getEntries();
+  }
+
+  override get listColumns() {
+    return [
+      {
+        prop: "id",
+        label: "users.list.id",
+        primary: true,
+      },
+      {
+        prop: "email",
+        label: "users.fields.email",
+      },
+    ];
+  }
   /*
   override route = "resorts";
   override name = "resorts";

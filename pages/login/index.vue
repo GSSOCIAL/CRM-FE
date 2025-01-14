@@ -62,8 +62,6 @@ const login = () => {
 </script>
 
 <style scoped lang="scss">
-@import "assets/style/animations.scss";
-
 .loginPageContainer {
   display: flex;
   flex-direction: column;
