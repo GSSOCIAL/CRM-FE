@@ -9,8 +9,8 @@
       "description": "Create new resort entry"
     },
     "fields": {
-      "name-label": "Name",
-      "name-placeholder": "Name"
+      "includes-label": "Includes",
+      "includes-placeholder": "Enter what includes"
     }
   }
 }

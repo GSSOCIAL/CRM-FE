@@ -24,6 +24,78 @@ export default class ResortsController extends controller {
       },
     ];
   }
+
+  override get createForm() {
+    return [
+      {
+        key: "general",
+        tab: "resorts.tabs.general",
+        sections: [
+          {
+            key: "general",
+            label: "resorts.sections.general",
+            rows: [
+              [
+                {
+                  id: "name",
+                  label: "resorts.fields.name",
+                },
+              ],
+              [
+                {
+                  id: "description",
+                  label: "resorts.fields.description",
+                  type: "textarea",
+                },
+              ],
+              [
+                {
+                  id: "country",
+                  label: "resorts.fields.country",
+                  type: "enum",
+                  options: [].map((option) => {
+                    return {
+                      value: option.key,
+                      label: `countries.${option.key}`,
+                    };
+                  }),
+                },
+                {
+                  id: "city",
+                  label: "resorts.fields.city",
+                  type: "enum",
+                  options: (args) => {
+                    console.log(args);
+
+                    return [];
+                  },
+                },
+                {
+                  id: "address",
+                  label: "resorts.fields.address",
+                  placeholder: "",
+                },
+              ],
+            ],
+          },
+          {
+            key: "details",
+            label: "resorts.sections.details",
+            rows: [
+              [
+                {
+                  id: "includes",
+                  label: "resorts.fields.includes-label",
+                  placeholder: "resorts.fields.includes-placeholder",
+                  type: "list",
+                },
+              ],
+            ],
+          },
+        ],
+      },
+    ];
+  }
   /*
   override route = "resorts";
   override name = "resorts";
