@@ -1,0 +1,23 @@
+{
+  "navigation": {
+    "hotels": "Hotels"
+  },
+  "hotels": {
+    "title": "Hotels",
+    "description": "",
+    "create": {
+      "title": "Hotels",
+      "description": ""
+    },
+    "sections": {
+      "territory": "Territory"
+    },
+    "fields": {
+      "checkin": "Check In",
+      "checkout": "Check Out",
+      "restaurant": "Restaurant",
+      "bar": "Bar",
+      "wifi": "Wi-fi"
+    }
+  }
+}

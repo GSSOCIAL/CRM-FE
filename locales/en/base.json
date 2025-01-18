@@ -47,6 +47,18 @@
       "details": "Details"
     }
   },
+  "widgets": {
+    "actions": {
+      "add": "Add Widget",
+      "close": "Close"
+    },
+    "labels": {
+      "add": "Add Widget"
+    },
+    "messages": {
+      "empty": "No Widgets in collection"
+    }
+  },
   "countries": {
     "ua": "Ukraine"
   },

@@ -4,5 +4,12 @@
   },
   "modulesList": {
     "dashboard": "Dashboard"
+  },
+  "dashboard": {
+    "actions": {
+      "editPage": "Edit Page",
+      "save": "Save",
+      "dismiss": "Dismiss"
+    }
   }
 }

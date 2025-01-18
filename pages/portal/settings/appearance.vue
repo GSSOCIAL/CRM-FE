@@ -171,6 +171,7 @@ const colorSchemes = computed(() => {
     };
   });
 });
+
 const selectScheme = (scheme: string) => {
   app.hooks.callHook("colorScheme:change", scheme);
   selectedColorScheme.value = scheme;
