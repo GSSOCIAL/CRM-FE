@@ -1,4 +1,6 @@
 const controller = useModuleController();
+const countries = useLists("countries");
+const cities = useLists("cities");
 
 export default class HotelsController extends controller {
   override route = "hotels";
@@ -48,7 +50,7 @@ export default class HotelsController extends controller {
                   id: "country",
                   label: "hotels.fields.country",
                   type: "enum",
-                  options: [].map((option) => {
+                  options: countries.map((option) => {
                     return {
                       value: option.key,
                       label: `countries.${option.key}`,
@@ -60,7 +62,11 @@ export default class HotelsController extends controller {
                   label: "hotels.fields.city",
                   type: "enum",
                   options: (args) => {
-                    console.log(args);
+                    if (args.country) {
+                      if (typeof cities[args.country] != "undefined") {
+                        return cities[args.country];
+                      }
+                    }
 
                     return [];
                   },

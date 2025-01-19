@@ -49,7 +49,7 @@ const edit = resolveComponent("ViewEdit");
 const button = resolveComponent("Button");
 
 const route = useRoute();
-const app = useNuxtApp();
+const nuxtApp = useNuxtApp();
 const t = useI18n();
 
 const module = computed((): string => {
@@ -57,12 +57,33 @@ const module = computed((): string => {
 });
 
 const controller = computed((): any => {
-  return app.$vertex.modules[module.value] ?? null;
+  return nuxtApp.$vertex.modules[module.value] ?? null;
 });
 
 const form = computed(() => {
   if (controller.value) {
-    return controller.value.createForm;
+    return controller.value.createForm.map((tab) => {
+      return {
+        ...tab,
+        sections: tab.sections.map((section) => {
+          return {
+            ...section,
+            rows: section.rows.map((row) => {
+              return row.map((field) => {
+                let options = field.options || [];
+                if (typeof options == "function") {
+                  options = field.options.bind(this).call(this, payload.value);
+                }
+                return {
+                  ...field,
+                  options: options,
+                };
+              });
+            }),
+          };
+        }),
+      };
+    });
   }
 });
 
@@ -75,7 +96,7 @@ const update = () => {
   if (controller.value) {
     //Create controller function should act as Promise to lock page state, in response boolean or id expected
     controller.value.createEntry({ ...payload.value }).then((response: any) => {
-      app.hooks.callHook("toast:message", {
+      nuxtApp.$vertex.toast({
         message: t.te(`${module.value}.create.success-toast`)
           ? t.t(`${module.value}.create.success-toast`)
           : t.t("default.create.success-toast"),

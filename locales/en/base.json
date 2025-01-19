@@ -36,7 +36,10 @@
       "country": "Country",
       "city": "City",
       "address": "Address",
-      "description": "Description"
+      "description": "Description",
+      "cities": {
+        "kh": "Kharkiv"
+      }
     },
     "tabs": {
       "general": "General",
