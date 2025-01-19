@@ -37,6 +37,7 @@
       "city": "City",
       "address": "Address",
       "description": "Description",
+      "rate": "Rate",
       "cities": {
         "kh": "Kharkiv"
       }

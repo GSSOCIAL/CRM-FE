@@ -11,7 +11,11 @@
         <FormBuilder>
           <Field placeholder="Email" v-model="form.email" />
           <div class="loginPagePasswordField">
-            <Field placeholder="Password" v-model="form.password" />
+            <Field
+              type="password"
+              placeholder="Password"
+              v-model="form.password"
+            />
             <nuxt-link to="/">Forgot password?</nuxt-link>
           </div>
           <div class="loginPageFormActions">
@@ -37,7 +41,7 @@
 definePageMeta({
   layout: "auth",
 });
-const { $api, $store } = useNuxtApp();
+const nuxtApp = useNuxtApp();
 
 const form = ref({
   email: "",
@@ -45,12 +49,12 @@ const form = ref({
 });
 
 const login = () => {
-  $api.identity
+  nuxtApp.$vertex.api.identity
     .login({ email: form.value.email, password: form.value.password })
     .then((response) => {
       if (response && response.token) {
-        $store.identity.setToken(response.token);
-        $store.identity.setUser({
+        nuxtApp.$store.identity.setToken(response.token);
+        nuxtApp.$store.identity.setUser({
           id: response.user.id,
           email: response.user.email,
         });
